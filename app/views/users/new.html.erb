@@ -1,0 +1,23 @@
+<h1>ユーザー登録</h1>
+<%= form_for @user, url: signup_path do |f| %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "Password（確認用）" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <%= f.submit "登録する" %>
+<% end %>
