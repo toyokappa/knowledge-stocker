@@ -1,8 +1,2 @@
 <h1>サンプルアプリケーション</h1>
 <p>これはRails Developers Meetupのために作られたアプリです。</p>
-<% if logged_in? %>
-  <p><%= link_to "単語登録", words_new_path %></p>
-<% else %>
-  <p><%= link_to "ユーザー登録", signup_path %></p>
-  <p><%= link_to "ログイン", login_path %></p>
-<% end %>

@@ -12,12 +12,7 @@
     <% flash.each do |msg_type, msg| %>
       <p><%= "#{msg_type}：#{msg}" %></p>
     <% end %>
-    <% if logged_in? %>
-      <p><%= link_to "プロフィール", current_user %><p>
-      <p><%= link_to "単語一覧へ", words_path %></p>
-      <p><%= link_to "ログアウト", logout_path, method: :delete %></p>
-    <% end %>
     <%= yield %>
-    <p><%= link_to "Home", root_path %></p>
+    <%= render "layouts/menu" %>
   </body>
 </html>
