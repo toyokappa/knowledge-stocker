@@ -23,6 +23,12 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
 
+  def destroy
+    Word.find(params[:id]).destroy
+    flash[:success] = "単語を削除しました。"
+    redirect_to words_url
+  end
+
   private
     def word_params
       params.require(:word).permit(:content)
