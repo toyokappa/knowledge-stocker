@@ -1,8 +1,6 @@
 <h1>単語登録</h1>
 <%= form_for @word do |f| %>
-  <% @word.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
+  <%= render "shared/error_messages", resources: @word %>
   <p>
     <%= f.label :content %>
     <%= f.text_field :content %>
