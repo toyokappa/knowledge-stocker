@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709010432) do
+ActiveRecord::Schema.define(version: 20170709093914) do
+
+  create_table "knowledges", force: :cascade do |t|
+    t.string "url", null: false
+    t.integer "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["word_id"], name: "index_knowledges_on_word_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
