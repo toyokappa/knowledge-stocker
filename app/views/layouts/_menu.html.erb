@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <p><%= link_to "プロフィール", current_user %><p>
   <p><%= link_to "単語一覧へ", words_path %></p>
-  <p><%= link_to "単語登録", words_new_path %></p>
+  <p><%= link_to "単語登録", new_word_path %></p>
   <p><%= link_to "ログアウト", logout_path, method: :delete %></p>
 <% else %>
   <p><%= link_to "ユーザー登録", signup_path %></p>
