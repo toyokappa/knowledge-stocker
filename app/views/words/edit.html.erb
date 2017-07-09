@@ -10,6 +10,8 @@
     <li>
       <%= knowledges_f.label :url, "URL" %>
       <%= knowledges_f.text_field :url %>
+      <%= knowledges_f.check_box :_destroy %>
+      <%= knowledges_f.label :_destroy, "削除" %>
     </li>
   <% end %>
   </ul>
