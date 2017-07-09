@@ -1,0 +1,19 @@
+<h1>単語編集</h1>
+<%= form_for @word do |f| %>
+  <%= render "shared/error_messages", resources: @word %>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+  <ul>
+  <%= f.fields_for :knowledges do |knowledges_f| %>
+    <li>
+      <%= knowledges_f.label :url, "URL" %>
+      <%= knowledges_f.text_field :url %>
+    </li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.submit "単語を編集" %>
+  </p>
+<% end %>
