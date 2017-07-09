@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :new, :create, :show]
+  before_action :logged_in_user
 
   def index
     @words = Word.where(user_id: current_user)

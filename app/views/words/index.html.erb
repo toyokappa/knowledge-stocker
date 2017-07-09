@@ -2,7 +2,9 @@
 <ol>
 <% @words.each do |word| %>
   <li>
-    <%= link_to word.content, word %>
+    <%= link_to word.content, word %>　|　
+    <%= link_to "削除", word, method: :delete,
+                             data: { confirm: "本当に削除しますか？" }%>
   </li>
 <% end %>
 </ol>
