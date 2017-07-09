@@ -23,6 +23,25 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
 
+  def edit
+    @word = Word.find(params[:id])
+    if @word.knowledges.size == 0
+      3.times { @word.knowledges.build }
+    else
+      @word.knowledges.build
+    end
+  end
+
+  def update
+    @word = Word.find(params[:id])
+    if @word.update_attributes(word_params)
+      flash[:success] = "編集が完了しました！"
+      redirect_to @word
+    else
+      render "edit"
+    end
+  end
+
   def destroy
     Word.find(params[:id]).destroy
     flash[:success] = "単語を削除しました。"
@@ -31,6 +50,7 @@ class WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:content)
+      params.require(:word).permit(:content,
+      knowledges_attributes: [:id, :url, :_destroy])
     end
 end

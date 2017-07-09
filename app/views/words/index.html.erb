@@ -2,7 +2,8 @@
 <ol>
 <% @words.each do |word| %>
   <li>
-    <%= link_to word.content, word %>　|　
+    <%= link_to word.content, word %> |
+    <%= link_to "編集", edit_word_path(word) %> |
     <%= render "shared/delete_link", resources: word %>
   </li>
 <% end %>
