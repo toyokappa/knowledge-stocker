@@ -50,6 +50,7 @@ class WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:content, knowledges_attributes: [:id, :url])
+      params.require(:word).permit(:content,
+      knowledges_attributes: [:id, :url, :_destroy])
     end
 end
