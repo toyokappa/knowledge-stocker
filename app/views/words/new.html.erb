@@ -1,0 +1,13 @@
+<h1>単語登録</h1>
+<%= form_for @word do |f| %>
+  <% @word.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.submit "単語を登録" %>
+  </p>
+<% end %>
