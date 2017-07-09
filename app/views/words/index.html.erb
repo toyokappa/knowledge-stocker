@@ -1,0 +1,9 @@
+<h1>単語一覧</h1>
+<ol>
+<% @words.each do |word| %>
+  <li>
+    <%= link_to word.content, word %>　|　
+    <%= render "shared/delete_link", resources: word %>
+  </li>
+<% end %>
+</ol>

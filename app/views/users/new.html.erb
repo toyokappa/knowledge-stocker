@@ -1,8 +1,6 @@
 <h1>ユーザー登録</h1>
 <%= form_for @user, url: signup_path do |f| %>
-  <% @user.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
+  <%= render "shared/error_messages", resources: @user %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

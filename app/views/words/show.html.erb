@@ -1,0 +1,8 @@
+<h1>単語詳細</h1>
+<h2><%= @word.content %></h2>
+
+<p>理解したサイト：</p>
+<p>
+  <%= link_to "編集", "#" %>
+  <%= render "shared/delete_link", resources: @word %>
+</p>
