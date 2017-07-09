@@ -4,6 +4,5 @@
 <p>理解したサイト：</p>
 <p>
   <%= link_to "編集", "#" %>
-  <%= link_to "削除", @word, method: :delete,
-                            data: { confirm: "本当に削除しますか？" } %>
+  <%= render "shared/delete_link", resources: @word %>
 </p>
