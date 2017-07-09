@@ -1,5 +1,9 @@
 class WordsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :show]
+  before_action :logged_in_user, only: [:index, :new, :create, :show]
+
+  def index
+    @words = Word.where(user_id: current_user)
+  end
 
   def new
     @word = current_user.words.build
