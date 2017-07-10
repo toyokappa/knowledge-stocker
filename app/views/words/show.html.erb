@@ -1,11 +1,16 @@
 <h1>単語詳細</h1>
 <h2><%= @word.content %></h2>
-<lu>
+<ol>
 <% @word.knowledges.each do |knowledge| %>
-  <li>理解したサイト：<%= link_to knowledge.url, knowledge.url,
-                                              target: "_blank" %></li>
+  <li>
+    理解したサイト：
+    <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
+    <br>理解度：
+    <%= "★" * knowledge.understanding %>
+  </li>
+  <br>
 <% end %>
-</lu>
+</ol>
 <p>
   <%= link_to "編集", edit_word_path(@word) %> |
   <%= render "shared/delete_link", resources: @word %>

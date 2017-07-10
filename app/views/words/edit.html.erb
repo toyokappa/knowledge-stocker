@@ -10,6 +10,8 @@
     <li>
       <%= knowledges_f.label :url, "URL" %>
       <%= knowledges_f.text_field :url %>
+      <%= knowledges_f.label :understanding, "理解度" %>
+      <%= knowledges_f.number_field :understanding, max: 5, min: 0 %>
       <%= knowledges_f.check_box :_destroy %>
       <%= knowledges_f.label :_destroy, "削除" %>
     </li>
