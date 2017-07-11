@@ -1,3 +1,12 @@
-<% resources.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
+<% if resources.errors.any? %>
+  <div class="error_explanation">
+    <div class="alert alert-danger">
+      <%= "エラー：#{resources.errors.count}項目" %>
+    </div>
+    <ul>
+    <% resources.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>

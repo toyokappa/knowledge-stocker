@@ -15,3 +15,42 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+/*    Form    */
+
+input[type="submit"] {
+  width: 100%;
+}
+
+ul.form-group {
+  list-style: none;
+  padding: 0;
+  li {
+    margin-bottom: 15px;
+    input {
+      margin-right: 10px;
+      &[type="checkbox"] {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin-bottom: 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
