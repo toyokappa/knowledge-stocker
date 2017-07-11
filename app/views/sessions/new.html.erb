@@ -4,11 +4,11 @@
   <div class="col-sm-6 col-sm-offset-3">
     <%= form_for :session, url: login_path do |f| %>
       <div class="form-group">
-        <%= f.label :email %>
+        <%= f.label t(".email") %>
         <%= f.email_field :email, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label t(".password") %>
         <%= f.password_field :password, class: "form-control" %>
       </div>
       <%= f.submit "ログイン", class: "btn btn-primary" %>
