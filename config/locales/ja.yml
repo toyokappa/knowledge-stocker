@@ -20,7 +20,7 @@ ja:
         understanding: 理解度
   sessions:
     new:
-      email: 名前
+      email: メールアドレス
       password: パスワード
   date:
     abbr_day_names:
