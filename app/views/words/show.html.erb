@@ -1,14 +1,14 @@
 <h1>単語詳細</h1>
 <h2><%= @word.content %></h2>
-<ol>
+<ol class="word-show">
 <% @word.knowledges.each do |knowledge| %>
   <li>
     理解したサイト：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
-    <br>理解度：
-    <%= "★" * knowledge.understanding %>
+    <div>
+      理解度：<%= "★" * knowledge.understanding %>
+    </div>
   </li>
-  <br>
 <% end %>
 </ol>
 <p>

@@ -31,7 +31,7 @@
     </header>
     <div id="wrapper" class="container">
       <% flash.each do |msg_type, msg| %>
-        <p><%= "#{msg_type}：#{msg}" %></p>
+        <%= content_tag :div, msg, class: "alert alert-#{msg_type}" %>
       <% end %>
       <%= yield %>
     </div>

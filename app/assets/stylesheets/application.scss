@@ -15,6 +15,25 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+ @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+
+/*    Universal    */
+
+body {
+  font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 16px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.center {
+  text-align: center;
+}
 
 /*    Form    */
 
@@ -44,7 +63,7 @@ ul.form-group {
   color: red;
   ul {
     color: red;
-    margin-bottom: 30px;
+    margin-bottom: 20px
   }
 }
 
