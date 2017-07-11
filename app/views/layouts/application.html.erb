@@ -9,10 +9,31 @@
   </head>
 
   <body>
-    <% flash.each do |msg_type, msg| %>
-      <p><%= "#{msg_type}：#{msg}" %></p>
-    <% end %>
-    <%= yield %>
-    <%= render "layouts/menu" %>
+    <header class="navbar navbar-static-top navbar-inverse">
+      <nav class="container">
+        <div class="navbar-header">
+          <%= link_to "Knowledge Stocker", root_path, class: "navbar-brand" %>
+        </div>
+      <% if logged_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "プロフィール", current_user %></li>
+          <li><%= link_to "単語一覧", words_path %></li>
+          <li><%= link_to "単語登録", new_word_path %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ユーザー登録", signup_path %></li>
+          <li><%= link_to "ログイン", login_path %></li>
+        </ul>
+      <% end %>
+      </nav>
+    </header>
+    <div id="wrapper" class="container">
+      <% flash.each do |msg_type, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{msg_type}" %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

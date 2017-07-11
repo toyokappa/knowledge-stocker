@@ -1,23 +1,29 @@
-<h1>単語編集</h1>
-<%= form_for @word do |f| %>
-  <%= render "shared/error_messages", resources: @word %>
-  <p>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </p>
-  <ul>
-  <%= f.fields_for :knowledges do |knowledges_f| %>
-    <li>
-      <%= knowledges_f.label :url, "URL" %>
-      <%= knowledges_f.text_field :url %>
-      <%= knowledges_f.label :understanding, "理解度" %>
-      <%= knowledges_f.number_field :understanding, max: 5, min: 0 %>
-      <%= knowledges_f.check_box :_destroy %>
-      <%= knowledges_f.label :_destroy, "削除" %>
-    </li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.submit "単語を編集" %>
-  </p>
-<% end %>
+<h1 class="center">単語編集</h1>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for @word do |f| %>
+      <%= render "shared/error_messages", resources: @word %>
+      <div class="form-group">
+        <%= f.label :content, "単語" %>
+        <%= f.text_field :content, class: "form-control" %>
+      </div>
+      <ul class="form-group">
+      <%= f.fields_for :knowledges do |knowledges_f| %>
+        <li class="form-inline">
+          <%= knowledges_f.label :url, "URL" %>
+          <%= knowledges_f.text_field :url, class: "form-control input-sm" %>
+          <%= knowledges_f.label :understanding, "理解度" %>
+          <%= knowledges_f.number_field :understanding,
+                                        max: 5, min: 0,
+                                        class: "form-control input-sm" %>
+          <label class="form-check-label">
+            <%= knowledges_f.check_box :_destroy, class: "form-check-input" %>
+            削除
+          </label>
+        </li>
+      <% end %>
+      </ul>
+      <%= f.submit "単語を編集", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
