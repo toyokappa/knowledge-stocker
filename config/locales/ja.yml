@@ -18,6 +18,10 @@ ja:
       knowledge:
         url: URL
         understanding: 理解度
+  sessions:
+    new:
+      email: 名前
+      password: パスワード
   date:
     abbr_day_names:
     - 日
