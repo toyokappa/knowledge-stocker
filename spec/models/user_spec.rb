@@ -40,4 +40,16 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq false
     end
   end
+
+  describe "#password" do
+    it "is present" do
+      @user.password = @user.password_confirmation = " " * 6
+      expect(@user.valid?).to eq false
+    end
+
+    it "has 6 characters or more" do
+      @user.password = @user.password_confirmation = "a" * 5
+      expect(@user.valid?).to eq false
+    end
+  end
 end
