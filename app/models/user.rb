@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :words
+  has_many :words, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :email, presence: true, uniqueness: true,
