@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'pg'
 
 group :development, :test do
   gem 'pry-rails'
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'faker'
   gem 'factory_girl_rails'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -38,8 +38,4 @@ group :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'rails-5'
-end
-
-group :production do
-  gem 'pg'
 end
