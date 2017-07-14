@@ -22,11 +22,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'faker'
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'sqlite3'
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -37,13 +34,12 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers',
-      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
-      branch: 'rails-5'
+  gem 'rspec-rails'
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'rails-5'
 end
 
 group :production do
   gem 'pg'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
