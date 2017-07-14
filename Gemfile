@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'faker'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
@@ -32,7 +33,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'rails-5'
