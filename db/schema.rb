@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20170710033954) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "knowledges", force: :cascade do |t|
     t.string "url", null: false
-    t.integer "word_id"
+    t.bigint "word_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "understanding", default: 0
@@ -33,10 +36,12 @@ ActiveRecord::Schema.define(version: 20170710033954) do
 
   create_table "words", force: :cascade do |t|
     t.string "content", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_words_on_user_id"
   end
 
+  add_foreign_key "knowledges", "words"
+  add_foreign_key "words", "users"
 end
