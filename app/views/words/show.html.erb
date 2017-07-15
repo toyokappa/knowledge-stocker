@@ -1,7 +1,7 @@
 <h1>単語詳細</h1>
 <h2><%= @word.content %></h2>
 <ol class="word-show">
-<% @word.knowledges.each do |knowledge| %>
+<% @word.knowledges.understanding_order.each do |knowledge| %>
   <li>
     理解したサイト：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
