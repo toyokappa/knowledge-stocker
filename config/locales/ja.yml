@@ -18,6 +18,8 @@ ja:
       knowledge:
         url: URL
         understanding: 理解度
+      knowledges:
+        url: URL
   sessions:
     new:
       email: メールアドレス
@@ -148,8 +150,8 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
-      invalid_email_address: は不正な形式です
-      email_address_not_routable: はルーティングできません
+      email: は不正な形式です
+      url: は不正な形式です
     template:
       body: 次の項目を確認してください
       header:
