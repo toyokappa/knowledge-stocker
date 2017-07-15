@@ -32,6 +32,7 @@ RSpec.describe Knowledge, type: :model do
   end
 
   describe "validation" do
+    it { is_expected.to validate_presence_of(:url)}
     it { is_expected.to ensure_valid_url_format_of(:url) }
   end
 end
