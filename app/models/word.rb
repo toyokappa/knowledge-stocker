@@ -3,4 +3,6 @@ class Word < ApplicationRecord
   has_many :knowledges, dependent: :destroy
   accepts_nested_attributes_for :knowledges, allow_destroy: true,
   reject_if: lambda { |attributes| attributes["url"].blank? }
+
+  validates :content, presence: true, length: { maximum: 50 }
 end

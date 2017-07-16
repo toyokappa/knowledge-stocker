@@ -1,4 +1,5 @@
 class Knowledge < ApplicationRecord
   belongs_to :word
-  default_scope { order(understanding: :desc) }
+  scope :understanding_order, -> { order(understanding: :desc) }
+  validates :url, presence: true, url: true
 end
