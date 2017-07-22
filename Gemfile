@@ -7,6 +7,7 @@ end
 
 
 gem 'rails', '~> 5.1.2'
+gem 'annotate'
 gem 'missing_validators'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -28,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails-erd', require: false
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
 end
