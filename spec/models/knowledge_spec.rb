@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: knowledges
+#
+#  id            :integer          not null, primary key
+#  url           :string           not null
+#  word_id       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  understanding :integer          default(0)
+#
+
 require 'rails_helper'
 
 RSpec.describe Knowledge, type: :model do
