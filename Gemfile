@@ -28,6 +28,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'rails-erd', require: false
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
 end
