@@ -1,7 +1,8 @@
 class WordsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @words = Word.where(user_id: current_user)
+    @words = current_user.words.all
   end
 
   def new
@@ -23,7 +24,6 @@ class WordsController < ApplicationController
   end
 
   def edit
-    @word = Word.find(params[:id])
     if @word.knowledges.size == 0
       3.times { @word.knowledges.build }
     else
@@ -32,7 +32,6 @@ class WordsController < ApplicationController
   end
 
   def update
-    @word = Word.find(params[:id])
     if @word.update_attributes(word_params)
       flash[:success] = "編集が完了しました！"
       redirect_to @word
@@ -42,7 +41,7 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    Word.find(params[:id]).destroy
+    @word.destroy
     flash[:success] = "単語を削除しました。"
     redirect_to words_url
   end
@@ -51,5 +50,10 @@ class WordsController < ApplicationController
     def word_params
       params.require(:word).permit(:content,
       knowledges_attributes: [:id, :url, :understanding, :_destroy])
+    end
+
+    def correct_user
+      @word = current_user.words.find_by(id: params[:id])
+      redirect_to root_url if @word.nil?
     end
 end
