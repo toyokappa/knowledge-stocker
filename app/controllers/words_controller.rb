@@ -1,8 +1,8 @@
 class WordsController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_current_user_words, only: [:show, :edit, :update, :destroy]
 
   def index
-    @words = current_user.words.all
+    @words = current_user.words
   end
 
   def new
@@ -20,7 +20,7 @@ class WordsController < ApplicationController
   end
 
   def show
-    @word = Word.find(params[:id])
+    @knowledges = @word.knowledges.understanding_order
   end
 
   def edit
@@ -32,7 +32,7 @@ class WordsController < ApplicationController
   end
 
   def update
-    if @word.update_attributes(word_params)
+    if @word.update(word_params)
       flash[:success] = "編集が完了しました！"
       redirect_to @word
     else
@@ -52,8 +52,7 @@ class WordsController < ApplicationController
       knowledges_attributes: [:id, :url, :understanding, :_destroy])
     end
 
-    def correct_user
-      @word = current_user.words.find_by(id: params[:id])
-      redirect_to root_url if @word.nil?
+    def set_current_user_words
+      @word = current_user.words.find(params[:id])
     end
 end

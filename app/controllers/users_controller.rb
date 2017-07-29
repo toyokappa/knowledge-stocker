@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :set_current_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -18,14 +18,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       flash[:success] = "ユーザー情報を更新しました！"
       redirect_to @user
     else
@@ -40,8 +39,7 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to root_url unless current_user?(@user)
+    def set_current_user
+      @user = current_user
     end
 end
