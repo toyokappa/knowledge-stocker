@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  before_action :set_word, only: [:show, :edit, :update, :destroy]
+
   def index
     @words = current_user.words
   end
@@ -18,21 +20,14 @@ class WordsController < ApplicationController
   end
 
   def show
-    @word = current_user.words.find(params[:id])
     @knowledges = @word.knowledges.understanding_order
   end
 
   def edit
-    @word = current_user.words.find(params[:id])
-    if @word.knowledges.empty?
-      3.times { @word.knowledges.build }
-    else
-      @word.knowledges.build
-    end
+    @word.knowledges.build
   end
 
   def update
-    @word = current_user.words.find(params[:id])
     if @word.update(word_params)
       flash[:success] = "編集が完了しました！"
       redirect_to @word
@@ -42,7 +37,6 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    @word = current_user.words.find(params[:id])
     @word.destroy
     flash[:success] = "単語を削除しました。"
     redirect_to words_url
@@ -53,5 +47,9 @@ class WordsController < ApplicationController
   def word_params
     params.require(:word).permit(:content,
     knowledges_attributes: [:id, :url, :understanding, :_destroy])
+  end
+
+  def set_word
+    @word = current_user.words.find(params[:id])
   end
 end
