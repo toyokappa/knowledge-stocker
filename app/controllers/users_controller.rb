@@ -17,18 +17,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
+    if current_user.update(user_params)
       flash[:success] = "ユーザー情報を更新しました！"
-      redirect_to @user
+      redirect_to current_user
     else
       render "edit"
     end
