@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user
-  helper_method :current_user, :logged_in?, :current_user?
+  helper_method :current_user, :logged_in?
 
   private
 
@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
-  end
-
-  def current_user?(user)
-    user == current_user
   end
 
   def logged_in?
