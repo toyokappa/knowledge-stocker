@@ -24,7 +24,7 @@ class WordsController < ApplicationController
   end
 
   def edit
-    if @word.knowledges.size == 0
+    if @word.knowledges.empty?
       3.times { @word.knowledges.build }
     else
       @word.knowledges.build
@@ -47,12 +47,13 @@ class WordsController < ApplicationController
   end
 
   private
-    def word_params
-      params.require(:word).permit(:content,
-      knowledges_attributes: [:id, :url, :understanding, :_destroy])
-    end
 
-    def set_current_user_words
-      @word = current_user.words.find(params[:id])
-    end
+  def word_params
+    params.require(:word).permit(:content,
+    knowledges_attributes: [:id, :url, :understanding, :_destroy])
+  end
+
+  def set_current_user_words
+    @word = current_user.words.find(params[:id])
+  end
 end
