@@ -12,8 +12,6 @@
 <% end %>
 </ol>
 <p>
-  <% if current_user.same_as?(@word.user) %>
-    <%= link_to "編集", edit_word_path(@word) %> |
-    <%= render "shared/delete_link", resources: @word %>
-  <% end %>
+  <%= link_to "編集", edit_word_path(@word) %> |
+  <%= render "shared/delete_link", resources: @word %>
 </p>

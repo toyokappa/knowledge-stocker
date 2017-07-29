@@ -21,8 +21,4 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, email: true
   validates :password, presence: true, length: { minimum: 6 }
   has_secure_password
-
-  def same_as?(user)
-    self == user
-  end
 end
