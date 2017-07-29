@@ -22,12 +22,12 @@ class SessionsController < ApplicationController
 
   private
 
-    def create_session(user)
-      session[:user_id] = user.id
-    end
+  def create_session(user)
+    session[:user_id] = user.id
+  end
 
-    def destroy_session
-      session.delete(:user_id)
-      @current_user = nil
-    end
+  def destroy_session
+    session.delete(:user_id)
+    @current_user = nil
+  end
 end
