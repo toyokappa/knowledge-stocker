@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       create_session(user)
       redirect_to user
     else
-      flash.now[:danger] = "メールアドレスもしくはパスワードが間違っています。"
+      flash.now[:danger] = t(".flash_danger")
       render "new"
     end
   end

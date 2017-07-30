@@ -24,6 +24,9 @@ ja:
     new:
       email: メールアドレス
       password: パスワード
+      login: ログイン
+    create:
+      flash_danger: メールアドレスもしくはパスワードが間違っています
   date:
     abbr_day_names:
     - 日
