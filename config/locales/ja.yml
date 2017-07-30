@@ -31,6 +31,19 @@ ja:
     home:
       sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
       regist_word: 単語を登録する
+  users:
+    new:
+      user_registration: ユーザー登録
+      regist: 登録する
+    create:
+      flash_success: 登録が完了しました！
+    edit:
+      user_edit: ユーザー情報の編集
+      update: 更新する
+    update:
+      flash_success: ユーザー情報を更新しました！
+    show:
+      edit: 編集
   date:
     abbr_day_names:
     - 日
