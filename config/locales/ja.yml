@@ -27,6 +27,10 @@ ja:
       login: ログイン
     create:
       flash_danger: メールアドレスもしくはパスワードが間違っています
+  static_pages:
+    home:
+      sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
+      regist_word: 単語を登録する
   date:
     abbr_day_names:
     - 日

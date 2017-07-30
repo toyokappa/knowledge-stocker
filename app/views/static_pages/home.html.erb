@@ -1,9 +1,5 @@
 <div class="center">
   <h1>Knowledge Stocker</h1>
-  <p>わからない単語と分かりやすいサイトを繋ぐするサービスです。</p>
-  <% if logged_in? %>
-    <%= link_to "単語を登録する", new_word_path, class: "btn btn-primary" %>
-  <% else %>
-    <%= link_to "ユーザー登録する", signup_path, class: "btn btn-primary" %>
-  <% end  %>
+  <p><%= t(".sub_title") %></p>
+  <%= link_to t(".regist_word"), new_word_path, class: "btn btn-primary" %>
 </div>
