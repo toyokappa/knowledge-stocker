@@ -1,4 +1,4 @@
-<h1>単語詳細</h1>
+<h1><%=t ".word_details" %></h1>
 <h2><%= @word.content %></h2>
 <ol class="word-show">
 <% @knowledges.each do |knowledge| %>
@@ -12,6 +12,6 @@
 <% end %>
 </ol>
 <p>
-  <%= link_to "編集", edit_word_path(@word) %> |
+  <%= link_to t(".edit"), edit_word_path(@word) %> |
   <%= render "shared/delete_link", resources: @word %>
 </p>
