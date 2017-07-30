@@ -29,6 +29,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'rubocop', require: false
   gem 'rails-erd', require: false
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
