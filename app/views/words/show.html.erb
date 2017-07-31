@@ -3,15 +3,15 @@
 <ol class="word-show">
 <% @knowledges.each do |knowledge| %>
   <li>
-    理解したサイト：
+    <%=t :understood_site %>：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
     <div>
-      理解度：<%= "★" * knowledge.understanding %>
+      <%=t :understanding %>：<%= "★" * knowledge.understanding %>
     </div>
   </li>
 <% end %>
 </ol>
 <p>
-  <%= link_to t(".edit"), edit_word_path(@word) %> |
+  <%= link_to t(:edit), edit_word_path(@word) %> |
   <%= render "shared/delete_link", resources: @word %>
 </p>

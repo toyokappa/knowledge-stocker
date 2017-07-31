@@ -3,17 +3,20 @@ ja:
   profile: プロフィール
   word_index: 単語一覧
   word_registration: 単語登録
-  logout: ログアウト
   user_registration: ユーザー登録
   login: ログイン
+  logout: ログアウト
   auhtenticate_alert: ログインしてください
+  edit: 編集
   delete: 削除
+  delete_confirmation: 本当に削除しますか？
   errors_count: "エラー：%{count}項目"
+  name: 名前
+  email: メールアドレス
+  password: パスワード
+  understood_site: 理解したサイト
+  understanding: 理解度
   sessions:
-    new:
-      email: メールアドレス
-      password: パスワード
-      login: ログイン
     create:
       flash_danger: メールアドレスもしくはパスワードが間違っています
   static_pages:
@@ -21,35 +24,19 @@ ja:
       sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
       regist_word: 単語を登録する
   users:
-    new:
-      user_registration: ユーザー登録
-      regist: 登録する
     create:
       flash_success: 登録が完了しました！
     edit:
-      user_edit: ユーザー情報の編集
-      update: 更新する
+      user_edit: プロフィール編集
     update:
       flash_success: ユーザー情報を更新しました！
-    show:
-      edit: 編集
   words:
-    index:
-      word_index: 単語一覧
-      understood_site: 理解したサイト
-      edit: 編集
-    new:
-      word_registration: 単語登録
-      regist_word: 単語を登録する
     create:
       flash_success: 単語登録が完了しました！
     show:
       word_details: 単語詳細
-      edit: 編集
     edit:
       word_edit: 単語編集
-      delete: 削除
-      update: 更新する
     update:
       flash_success: 単語を更新しました！
     destroy:

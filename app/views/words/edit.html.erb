@@ -18,12 +18,12 @@
                                         class: "form-control input-sm" %>
           <label class="form-check-label">
             <%= knowledges_f.check_box :_destroy, class: "form-check-input" %>
-            <%=t ".delete" %>
+            <%=t :delete %>
           </label>
         </li>
       <% end %>
       </ul>
-      <%= f.submit t(".update"), class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

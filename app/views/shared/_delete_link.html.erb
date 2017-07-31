@@ -1,2 +1,1 @@
-<%= link_to t(:delete), resources, method: :delete,
-                         data: { confirm: "本当に削除しますか？" }%>
+<%= link_to t(:delete), resources, method: :delete, data: { confirm: t(:delete_confirmation) }%>

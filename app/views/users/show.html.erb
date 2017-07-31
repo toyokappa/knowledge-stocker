@@ -1,4 +1,4 @@
-<h1>ユーザー情報</h1>
-<p>ユーザー名：<%= current_user.name %></p>
-<p>メールアドレス：<%= current_user.email %></p>
-<%= link_to t(".edit"), edit_user_path(current_user) %>
+<h1><%=t :profile %></h1>
+<p><%= "#{t(:name)}：#{current_user.name}" %></p>
+<p><%= "#{t(:email)}：#{current_user.email}" %></p>
+<%= link_to t(:edit), edit_user_path(current_user) %>

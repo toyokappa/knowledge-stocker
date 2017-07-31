@@ -1,14 +1,14 @@
-<h1><%=t ".word_index" %></h1>
+<h1><%=t :word_index %></h1>
 <ul class="word-index">
   <% @words.each do |word| %>
     <li>
       <h2><%= link_to word.content, word %></h2>
       <div>
         <% if word.knowledges.any? %>
-          <%= link_to t(".understood_site"),
+          <%= link_to t(:understood_site),
                       word.knowledges.first.url, target: "_blank" %> |
         <% end %>
-        <%= link_to t(".edit"), edit_word_path(word) %> |
+        <%= link_to t(:edit), edit_word_path(word) %> |
         <%= render "shared/delete_link", resources: word %>
       </div>
     </li>
