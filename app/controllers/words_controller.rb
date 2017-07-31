@@ -12,7 +12,7 @@ class WordsController < ApplicationController
   def create
     @word = current_user.words.build(word_params)
     if @word.save
-      flash[:success] = t(".flash_success")
+      flash[:success] = t(:registration_success)
       redirect_to @word
     else
       render "new"
@@ -29,7 +29,7 @@ class WordsController < ApplicationController
 
   def update
     if @word.update(word_params)
-      flash[:success] = t(".flash_success")
+      flash[:success] = t(:update_success)
       redirect_to @word
     else
       render "edit"
@@ -38,7 +38,7 @@ class WordsController < ApplicationController
 
   def destroy
     @word.destroy
-    flash[:success] = t(".flash_success")
+    flash[:success] = t(:delete_success)
     redirect_to words_url
   end
 

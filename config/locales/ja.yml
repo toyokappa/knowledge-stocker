@@ -6,7 +6,10 @@ ja:
   user_registration: ユーザー登録
   login: ログイン
   logout: ログアウト
-  auhtenticate_alert: ログインしてください
+  authentication_alert: ログインしてください
+  registration_success: 登録が完了しました！
+  update_success: 更新しました！
+  delete_success: 削除しました！
   edit: 編集
   delete: 削除
   delete_confirmation: 本当に削除しますか？
@@ -18,29 +21,19 @@ ja:
   understanding: 理解度
   sessions:
     create:
-      flash_danger: メールアドレスもしくはパスワードが間違っています
+      authentication_failed: メールアドレスもしくはパスワードが間違っています
   static_pages:
     home:
       sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
       regist_word: 単語を登録する
   users:
-    create:
-      flash_success: 登録が完了しました！
     edit:
       user_edit: プロフィール編集
-    update:
-      flash_success: ユーザー情報を更新しました！
   words:
-    create:
-      flash_success: 単語登録が完了しました！
     show:
       word_details: 単語詳細
     edit:
       word_edit: 単語編集
-    update:
-      flash_success: 単語を更新しました！
-    destroy:
-      flash_success: 単語を削除しました！
   activerecord:
     errors:
       messages:
