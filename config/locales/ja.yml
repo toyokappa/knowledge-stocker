@@ -1,39 +1,5 @@
 ---
 ja:
-  profile: プロフィール
-  word_index: 単語一覧
-  word_registration: 単語登録
-  user_registration: ユーザー登録
-  login: ログイン
-  logout: ログアウト
-  authentication_alert: ログインしてください
-  registration_success: 登録が完了しました！
-  update_success: 更新しました！
-  delete_success: 削除しました！
-  edit: 編集
-  delete: 削除
-  delete_confirmation: 本当に削除しますか？
-  errors_count: "エラー：%{count}項目"
-  name: 名前
-  email: メールアドレス
-  password: パスワード
-  understood_site: 理解したサイト
-  understanding: 理解度
-  sessions:
-    create:
-      authentication_failed: メールアドレスもしくはパスワードが間違っています
-  static_pages:
-    home:
-      sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
-      regist_word: 単語を登録する
-  users:
-    edit:
-      user_edit: プロフィール編集
-  words:
-    show:
-      word_details: 単語詳細
-    edit:
-      word_edit: 単語編集
   date:
     abbr_day_names:
     - 日
