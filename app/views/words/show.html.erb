@@ -1,17 +1,17 @@
-<h1><%=t ".word_details" %></h1>
+<h1><%=t "titles.word_details" %></h1>
 <h2><%= @word.content %></h2>
 <ol class="word-show">
 <% @knowledges.each do |knowledge| %>
   <li>
-    <%=t :understood_site %>：
+    <%=t "views.understood_site" %>：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
     <div>
-      <%=t :understanding %>：<%= "★" * knowledge.understanding %>
+      <%=t "views.understanding" %>：<%= "★" * knowledge.understanding %>
     </div>
   </li>
 <% end %>
 </ol>
 <p>
-  <%= link_to t(:edit), edit_word_path(@word) %> |
+  <%= link_to t("links.edit"), edit_word_path(@word) %> |
   <%= render "shared/delete_link", resources: @word %>
 </p>

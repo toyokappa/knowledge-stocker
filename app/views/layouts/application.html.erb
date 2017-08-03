@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Knowledge Stocker</title>
+    <title><%=t "app.title" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,19 +12,19 @@
     <header class="navbar navbar-static-top navbar-inverse">
       <nav class="container">
         <div class="navbar-header">
-          <%= link_to "Knowledge Stocker", root_path, class: "navbar-brand" %>
+          <%= link_to t("app.title"), root_path, class: "navbar-brand" %>
         </div>
       <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t(:profile), current_user %></li>
-          <li><%= link_to t(:word_index), words_path %></li>
-          <li><%= link_to t(:word_registration), new_word_path %></li>
-          <li><%= link_to t(:logout), logout_path, method: :delete %></li>
+          <li><%= link_to t("titles.profile"), current_user %></li>
+          <li><%= link_to t("titles.word_index"), words_path %></li>
+          <li><%= link_to t("titles.word_registration"), new_word_path %></li>
+          <li><%= link_to t("links.logout"), logout_path, method: :delete %></li>
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t(:user_registration), signup_path %></li>
-          <li><%= link_to t(:login), login_path %></li>
+          <li><%= link_to t("titles.user_registration"), signup_path %></li>
+          <li><%= link_to t("links.login"), login_path %></li>
         </ul>
       <% end %>
       </nav>

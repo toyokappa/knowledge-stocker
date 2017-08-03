@@ -1,4 +1,4 @@
-<h1 class="center"><%=t ".word_edit" %></h1>
+<h1 class="center"><%=t "titles.word_edit" %></h1>
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
     <%= form_for @word do |f| %>
@@ -18,7 +18,7 @@
                                         class: "form-control input-sm" %>
           <label class="form-check-label">
             <%= knowledges_f.check_box :_destroy, class: "form-check-input" %>
-            <%=t :delete %>
+            <%=t "links.delete" %>
           </label>
         </li>
       <% end %>
