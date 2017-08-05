@@ -1,8 +1,8 @@
 ja:
   app:
     title: knowledge Stocker
-    sub_title: わからない単語と分かりやすいサイトを繋ぐするサービスです。
-  titles:
+    description: わからない単語と分かりやすいサイトを繋ぐするサービスです。
+  title:
     user_registration: ユーザー登録
     profile: プロフィール
     user_edit: プロフィール編集
