@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       create_session(user)
       redirect_to user
     else
-      flash.now[:danger] = t(:authentication_failed, scope: :flashes)
+      flash.now[:danger] = t(:authentication_failed, scope: :flash)
       render "new"
     end
   end
