@@ -11,8 +11,6 @@ ja:
       knowledge:
         url: URL
         understanding: 理解度
-      knowledges:
-        url: URL
   errors:
     messages:
       email: は不正な形式です
