@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      word:
+        content: 単語
+      knowledge:
+        url: URL
+        understanding: 理解度
+  errors:
+    messages:
+      email: は不正な形式です
+      url: は不正な形式です

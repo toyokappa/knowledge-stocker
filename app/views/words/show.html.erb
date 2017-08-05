@@ -1,17 +1,17 @@
-<h1>単語詳細</h1>
+<h1><%=t "title.word_details" %></h1>
 <h2><%= @word.content %></h2>
 <ol class="word-show">
 <% @knowledges.each do |knowledge| %>
   <li>
-    理解したサイト：
+    <%=t "view.understood_site" %>：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
     <div>
-      理解度：<%= "★" * knowledge.understanding %>
+      <%=t Knowledge.human_attribute_name :understanding %>：<%= "★" * knowledge.understanding %>
     </div>
   </li>
 <% end %>
 </ol>
 <p>
-  <%= link_to "編集", edit_word_path(@word) %> |
+  <%= link_to t("link.edit"), edit_word_path(@word) %> |
   <%= render "shared/delete_link", resources: @word %>
 </p>

@@ -1,7 +1,7 @@
 <% if resources.errors.any? %>
   <div class="error_explanation">
     <div class="alert alert-danger">
-      <%= "エラー：#{resources.errors.count}項目" %>
+      <%=t "flash.errors_count", count: resources.errors.count %>
     </div>
     <ul>
     <% resources.errors.full_messages.each do |msg| %>
