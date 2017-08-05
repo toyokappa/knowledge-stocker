@@ -6,7 +6,7 @@
     <%=t "views.understood_site" %>：
     <%= link_to knowledge.url, knowledge.url, target: "_blank" %>
     <div>
-      <%=t "views.understanding" %>：<%= "★" * knowledge.understanding %>
+      <%=t Knowledge.human_attribute_name :understanding %>：<%= "★" * knowledge.understanding %>
     </div>
   </li>
 <% end %>

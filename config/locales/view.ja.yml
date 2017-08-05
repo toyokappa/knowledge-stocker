@@ -25,9 +25,5 @@ ja:
     delete: 削除
     register_word: 単語を登録する
   views:
-    name: 名前
-    email: メールアドレス
-    password: パスワード
-    understanding: 理解度
     understood_site: 理解したサイト
     delete_confirmation: 本当に削除しますか？
