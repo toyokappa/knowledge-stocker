@@ -22,10 +22,6 @@ class SessionsController < ApplicationController
 
   private
 
-  def create_session(user)
-    session[:user_id] = user.id
-  end
-
   def destroy_session
     session.delete(:user_id)
   end

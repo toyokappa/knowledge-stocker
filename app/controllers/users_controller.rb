@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = t(:registration_success, scope: :flash)
-      log_in(@user)
+      create_session(@user)
       redirect_to @user
     else
       render "new"
