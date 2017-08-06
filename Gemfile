@@ -7,8 +7,7 @@ end
 
 
 gem 'rails', '~> 5.1.2'
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+gem 'kaminari'
 gem 'rails-i18n'
 gem 'missing_validators'
 gem 'puma', '~> 3.7'
