@@ -13,6 +13,5 @@
       </div>
     </li>
   <% end %>
-  <%= will_paginate @words, previous_label: "<<", next_label: ">>",
-      renderer: BootstrapPagination::Rails %>
+  <%= paginate @words %>
 </ul>
