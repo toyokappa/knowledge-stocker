@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = t(:registration_success, scope: :flash)
       create_session(@user)
-      redirect_to @user
+      redirect_to user_path
     else
       render "new"
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:success] = t(:update_success, scope: :flash)
-      redirect_to current_user
+      redirect_to user_path
     else
       render "edit"
     end
