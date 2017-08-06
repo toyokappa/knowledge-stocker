@@ -8,6 +8,7 @@ end
 
 gem 'rails', '~> 5.1.2'
 gem 'kaminari'
+gem 'kaminari-i18n'
 gem 'rails-i18n'
 gem 'missing_validators'
 gem 'puma', '~> 3.7'
