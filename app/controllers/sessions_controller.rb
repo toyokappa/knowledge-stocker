@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       create_session(user)
-      redirect_to user
+      redirect_to root_path
     else
       flash.now[:danger] = t(:authentication_failed, scope: :flash)
       render "new"
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     destroy_session
-    redirect_to root_path
+    redirect_to login_path
   end
 
   private
