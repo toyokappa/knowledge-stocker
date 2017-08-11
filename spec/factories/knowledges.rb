@@ -25,4 +25,8 @@ FactoryGirl.define do
     understanding { Faker::Number.between(0,5) }
     word
   end
+
+  factory :invalid_knowledge, class: Knowledge do
+    url "aaa"
+  end
 end
