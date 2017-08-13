@@ -20,11 +20,4 @@ FactoryGirl.define do
     email { Faker::Internet.unique.email }
     password { Faker::Internet.password(6) }
   end
-
-  factory :invalid_user, class: User do
-    name " "
-    email "user@example"
-    password "foo"
-    password_confirmation "bar"
-  end
 end

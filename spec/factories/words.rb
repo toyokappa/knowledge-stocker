@@ -22,8 +22,4 @@ FactoryGirl.define do
     content { Faker::Lorem.word }
     user
   end
-
-  factory :invalid_word, class: Word do
-    content " "
-  end
 end
