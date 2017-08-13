@@ -14,7 +14,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.include Authentication
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
 end
@@ -24,4 +23,11 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def log_in_as(user)
+  visit login_path
+  fill_in User.human_attribute_name(:email), with: user.email
+  fill_in User.human_attribute_name(:password), with: user.password
+  click_button I18n.t("link.login")
 end
