@@ -1,11 +1,13 @@
 require "rails_helper"
 
 feature "URLの削除" do
-  given(:knowledge) { create :knowledge }
+  given(:user) { create :user }
+  given(:word) { create :word, user: user }
+  given!(:knowledge) { create :knowledge, word: word }
+
   scenario "URLの削除に成功する" do
-    login_as knowledge.word.user
-    click_link I18n.t("title.word_index")
-    click_link I18n.t("link.edit")
+    login_as user
+    visit edit_word_path(word)
     check "word_knowledges_attributes_0__destroy"
     click_button I18n.t("helpers.submit.update")
     expect(page).not_to have_content knowledge.url
