@@ -4,10 +4,10 @@ feature "ユーザー登録" do
   before do
     visit login_path
     click_link I18n.t("title.user_registration")
-    fill_in User.human_attribute_name(:name), with: user.name
-    fill_in User.human_attribute_name(:email), with: user.email
-    fill_in User.human_attribute_name(:password), with: user.password
-    fill_in User.human_attribute_name(:password_confirmation), with: user.password_confirmation
+    fill_in "user_name", with: user.name
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: user.password
+    fill_in "user_password_confirmation", with: user.password_confirmation
     click_button I18n.t("helpers.submit.create")
   end
 

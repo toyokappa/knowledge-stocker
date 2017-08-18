@@ -6,10 +6,10 @@ feature "プロフィール編集" do
 
     login_as user
     visit edit_user_path(user)
-    fill_in User.human_attribute_name(:name), with: name
-    fill_in User.human_attribute_name(:email), with: email
-    fill_in User.human_attribute_name(:password), with: password
-    fill_in User.human_attribute_name(:password_confirmation), with: password_confirmation
+    fill_in "user_name", with: name
+    fill_in "user_email", with: email
+    fill_in "user_password", with: password
+    fill_in "user_password_confirmation", with: password_confirmation
     click_button I18n.t("helpers.submit.update")
   end
 

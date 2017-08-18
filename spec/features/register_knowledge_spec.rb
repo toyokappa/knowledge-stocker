@@ -7,8 +7,8 @@ feature "URLの登録" do
 
     login_as user
     visit edit_word_path(word)
-    fill_in Knowledge.human_attribute_name(:url), with: url
-    fill_in Knowledge.human_attribute_name(:understanding), with: understanding
+    fill_in "word_knowledges_attributes_0_url", with: url
+    fill_in "word_knowledges_attributes_0_understanding", with: understanding
     click_button I18n.t("helpers.submit.update")
   end
 
