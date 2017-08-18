@@ -2,9 +2,10 @@ require "rails_helper"
 
 feature "プロフィール編集" do
   before do
+    user = create(:user)
+
     log_in_as user
-    click_link I18n.t("title.profile")
-    click_link I18n.t("link.edit")
+    visit edit_user_path(user)
     fill_in User.human_attribute_name(:name), with: name
     fill_in User.human_attribute_name(:email), with: email
     fill_in User.human_attribute_name(:password), with: password
@@ -13,7 +14,6 @@ feature "プロフィール編集" do
   end
 
   context "正しい値が入力された場合" do
-    given(:user) { create :user }
     given(:name) { "Valid Name"}
     given(:email) { "valid@email.com" }
     given(:password) { "valid password" }
@@ -25,7 +25,6 @@ feature "プロフィール編集" do
   end
 
   context "不正な値が入力された場合" do
-    given(:user) { create :user }
     given(:name) { " " }
     given(:email) { "invalid@email" }
     given(:password) { "foo" }

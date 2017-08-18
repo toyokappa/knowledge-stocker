@@ -2,16 +2,17 @@ require "rails_helper"
 
 feature "URLの登録" do
   before do
-    log_in_as word.user
-    click_link I18n.t("title.word_index")
-    click_link I18n.t("link.edit")
+    user = create(:user)
+    word = create(:word, user: user)
+
+    log_in_as user
+    visit edit_word_path(word)
     fill_in Knowledge.human_attribute_name(:url), with: url
     fill_in Knowledge.human_attribute_name(:understanding), with: understanding
     click_button I18n.t("helpers.submit.update")
   end
 
   context "正しい値を入力した場合" do
-    given(:word) { create :word }
     given(:url) { "http://valid.com" }
     given(:understanding) { 5 }
 
@@ -23,7 +24,6 @@ feature "URLの登録" do
   end
 
   context "不正な値を入力した場合" do
-    given(:word) { create :word }
     given(:url) { "invalid" }
     given(:understanding) { 1 }
 
