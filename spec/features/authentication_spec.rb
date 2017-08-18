@@ -11,7 +11,6 @@ feature "認証" do
 
     context "登録済みユーザーの情報を入力した場合" do
       given(:user) { create :user }
-
       scenario "ログインに成功する" do
         expect(current_path).to eq root_path
         expect(page).to have_link I18n.t("link.logout")
@@ -23,7 +22,6 @@ feature "認証" do
 
     context "Emailとパスワードが未入力の場合" do
       given(:user) { build :user, email: nil, password: nil}
-
       scenario "ログインに失敗する" do
         expect(page).to have_content I18n.t("flash.authentication_failed")
       end
@@ -31,7 +29,6 @@ feature "認証" do
 
     context "登録済みユーザーのEmailと不正なパスワードを入力した場合" do
       given(:user) { build :user, password: "invalid"}
-
       scenario "ログインに失敗する" do
         expect(page).to have_content I18n.t("flash.authentication_failed")
       end
@@ -39,7 +36,6 @@ feature "認証" do
 
     context "未登録ユーザーのEmailとパスワードを入力した場合" do
       given(:user) { build :user, email: "invalid@example.com", password: "invalid"}
-
       scenario "ログインに失敗する" do
         expect(page).to have_content I18n.t("flash.authentication_failed")
       end
@@ -48,7 +44,6 @@ feature "認証" do
 
   feature "ログアウト" do
     given(:user) { create :user }
-    
     scenario "ログアウトに成功する" do
       login_as user
       click_link I18n.t("link.logout")

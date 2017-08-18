@@ -15,7 +15,6 @@ feature "URLの登録" do
   context "正しい値を入力した場合" do
     given(:url) { "http://valid.com" }
     given(:understanding) { 5 }
-
     scenario "URLの登録に成功する" do
       expect(page).to have_content url
       click_link I18n.t("title.word_index")
@@ -26,7 +25,6 @@ feature "URLの登録" do
   context "不正な値を入力した場合" do
     given(:url) { "invalid" }
     given(:understanding) { 1 }
-
     scenario "URLの登録に失敗する" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end

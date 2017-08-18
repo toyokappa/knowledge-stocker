@@ -13,7 +13,6 @@ feature "単語の編集" do
 
   context "正しい値が入力された場合" do
     given(:content) { "valid content" }
-
     scenario "単語編集に成功する" do
       expect(page).to have_content I18n.t("flash.update_success")
       expect(page).to have_content content
@@ -22,7 +21,6 @@ feature "単語の編集" do
 
   context "不正な値が入力された場合" do
     given(:content) { " " }
-    
     scenario "単語編集に失敗する" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end

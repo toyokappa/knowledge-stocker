@@ -16,7 +16,6 @@ feature "URLの編集" do
   context "正しい値を入力した場合" do
     given(:url) { "http://valid.com" }
     given(:understanding) { 5 }
-
     scenario "URLの編集に成功する" do
       expect(page).to have_content I18n.t("flash.update_success")
     end
@@ -25,7 +24,6 @@ feature "URLの編集" do
   context "不正な値を入力した場合" do
     given(:url) { "invalid" }
     given(:understanding) { 1 }
-
     scenario "URLの編集に失敗する" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
