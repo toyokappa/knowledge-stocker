@@ -3,7 +3,7 @@ require "rails_helper"
 feature "URLの削除" do
   given(:knowledge) { create :knowledge }
   scenario "URLの削除に成功する" do
-    log_in_as knowledge.word.user
+    login_as knowledge.word.user
     click_link I18n.t("title.word_index")
     click_link I18n.t("link.edit")
     check "word_knowledges_attributes_0__destroy"

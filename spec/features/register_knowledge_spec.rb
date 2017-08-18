@@ -5,7 +5,7 @@ feature "URLの登録" do
     user = create(:user)
     word = create(:word, user: user)
 
-    log_in_as user
+    login_as user
     visit edit_word_path(word)
     fill_in Knowledge.human_attribute_name(:url), with: url
     fill_in Knowledge.human_attribute_name(:understanding), with: understanding

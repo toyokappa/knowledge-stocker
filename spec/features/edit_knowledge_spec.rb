@@ -6,7 +6,7 @@ feature "URLの編集" do
     word = create(:word, user: user)
     create(:knowledge, word: word)
 
-    log_in_as user
+    login_as user
     visit edit_word_path(word)
     fill_in "word_knowledges_attributes_0_url", with: url
     fill_in "word_knowledges_attributes_0_understanding", with: understanding

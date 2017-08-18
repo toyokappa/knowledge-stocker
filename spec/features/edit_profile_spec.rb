@@ -4,7 +4,7 @@ feature "プロフィール編集" do
   before do
     user = create(:user)
 
-    log_in_as user
+    login_as user
     visit edit_user_path(user)
     fill_in User.human_attribute_name(:name), with: name
     fill_in User.human_attribute_name(:email), with: email

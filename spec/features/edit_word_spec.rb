@@ -5,7 +5,7 @@ feature "単語の編集" do
     user = create(:user)
     word = create(:word, user: user)
 
-    log_in_as user
+    login_as user
     visit edit_word_path(word)
     fill_in Word.human_attribute_name(:content), with: content
     click_button I18n.t("helpers.submit.update")

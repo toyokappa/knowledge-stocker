@@ -31,7 +31,7 @@ feature "認証" do
   feature "ログアウト" do
     given(:user) { create :user }
     scenario "ログアウトに成功する" do
-      log_in_as user
+      login_as user
       click_link I18n.t("link.logout")
       expect(page).to have_link I18n.t("link.login")
     end

@@ -4,7 +4,7 @@ feature "単語登録" do
   before do
     user = create(:user)
 
-    log_in_as user
+    login_as user
     visit new_word_path
     fill_in Word.human_attribute_name(:content), with: content
     click_button I18n.t("helpers.submit.create")
