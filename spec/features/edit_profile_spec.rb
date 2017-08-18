@@ -5,16 +5,20 @@ feature "プロフィール編集" do
     log_in_as user
     click_link I18n.t("title.profile")
     click_link I18n.t("link.edit")
-    fill_in User.human_attribute_name(:name), with: update_user.name
-    fill_in User.human_attribute_name(:email), with: update_user.email
-    fill_in User.human_attribute_name(:password), with: update_user.password
-    fill_in User.human_attribute_name(:password_confirmation), with: update_user.password_confirmation
+    fill_in User.human_attribute_name(:name), with: name
+    fill_in User.human_attribute_name(:email), with: email
+    fill_in User.human_attribute_name(:password), with: password
+    fill_in User.human_attribute_name(:password_confirmation), with: password_confirmation
     click_button I18n.t("helpers.submit.update")
   end
 
   context "正しい値が入力された場合" do
     given(:user) { create :user }
-    given(:update_user) { build :user }
+    given(:name) { "Valid Name"}
+    given(:email) { "valid@email.com" }
+    given(:password) { "valid password" }
+    given(:password_confirmation) { "valid password" }
+
     scenario "プロフィール編集に成功する" do
       expect(page).to have_content I18n.t("flash.update_success")
     end
@@ -22,7 +26,11 @@ feature "プロフィール編集" do
 
   context "不正な値が入力された場合" do
     given(:user) { create :user }
-    given(:update_user) { build :user, name: " ", email: "invalid@example", password: "foo", password_confirmation: "bar" }
+    given(:name) { " " }
+    given(:email) { "invalid@email" }
+    given(:password) { "foo" }
+    given(:password_confirmation) { "bar" }
+
     scenario "プロフィール編集に失敗する" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 4)
     end
