@@ -14,7 +14,7 @@ feature "プロフィール編集" do
   end
 
   context "正しい値が入力された場合" do
-    given(:name) { "Valid Name"}
+    given(:name) { "Valid Name" }
     given(:email) { "valid@email.com" }
     given(:password) { "valid password" }
     given(:password_confirmation) { "valid password" }
@@ -24,14 +24,47 @@ feature "プロフィール編集" do
     end
   end
 
-  context "不正な値が入力された場合" do
+  context "不正なユーザー名が入力された場合" do
     given(:name) { " " }
-    given(:email) { "invalid@email" }
-    given(:password) { "foo" }
-    given(:password_confirmation) { "bar" }
+    given(:email) { "valid@email.com" }
+    given(:password) { "valid password" }
+    given(:password_confirmation) { "valid password" }
 
     scenario "プロフィール編集に失敗する" do
-      expect(page).to have_content I18n.t("flash.errors_count", count: 4)
+      expect(page).to have_content I18n.t("flash.errors_count", count: 1)
+    end
+  end
+
+  context "不正なEmailが入力された場合" do
+    given(:name) { "Valid Name" }
+    given(:email) { "invalid@email" }
+    given(:password) { "valid password" }
+    given(:password_confirmation) { "valid password" }
+
+    scenario "プロフィール編集に失敗する" do
+      expect(page).to have_content I18n.t("flash.errors_count", count: 1)
+    end
+  end
+
+  context "不正なパスワードが入力された場合" do
+    given(:name) { "Valid Name" }
+    given(:email) { "valid@email.com" }
+    given(:password) { "foo" }
+    given(:password_confirmation) { "foo" }
+
+    scenario "プロフィール編集に失敗する" do
+      expect(page).to have_content I18n.t("flash.errors_count", count: 1)
+    end
+  end
+
+  context "パスワードとパスワード（確認用）が一致しない場合" do
+    given(:name) { "Valid Name" }
+    given(:email) { "valid@email.com" }
+    given(:password) { "foobar" }
+    given(:password_confirmation) { "foobaz" }
+
+    scenario "プロフィール編集に失敗する" do
+      expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
   end
 end
