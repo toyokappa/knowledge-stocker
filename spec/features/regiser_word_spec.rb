@@ -19,7 +19,7 @@ feature "単語登録" do
   end
 
   context "不正な値が入力された場合" do
-    given(:content) { " " }
+    given(:content) { nil }
     scenario "登録できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
