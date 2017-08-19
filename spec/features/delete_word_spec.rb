@@ -5,7 +5,10 @@ feature "単語の削除" do
   given(:word) { create :word, user: user }
   scenario "単語の削除に成功する" do
     login_as user
-    visit edit_word_path(word)
+    visit word_path(word)
+    click_link I18n.t("link.delete")
     expect(page).to have_content I18n.t("flash.delete_success")
+    expect(current_path).to eq words_path
+    expect(page).not_to have_content word.content
   end
 end
