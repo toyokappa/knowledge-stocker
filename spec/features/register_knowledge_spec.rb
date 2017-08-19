@@ -13,7 +13,7 @@ feature "URLの登録" do
   end
 
   context "正しい値を入力した場合" do
-    given(:url) { "http://valid.com" }
+    given(:url) { Faker::Internet.url }
     given(:understanding) { 5 }
     scenario "登録できる" do
       expect(page).to have_content url
@@ -23,7 +23,7 @@ feature "URLの登録" do
   end
 
   context "不正な値を入力した場合" do
-    given(:url) { "invalid" }
+    given(:url) { "foobar" }
     given(:understanding) { 1 }
     scenario "登録できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)

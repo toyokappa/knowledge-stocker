@@ -12,7 +12,7 @@ feature "単語の編集" do
   end
 
   context "正しい値が入力された場合" do
-    given(:content) { "valid content" }
+    given(:content) { Faker::Lorem.word }
     scenario "更新できる" do
       expect(page).to have_content I18n.t("flash.update_success")
       expect(page).to have_content content

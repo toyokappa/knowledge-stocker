@@ -11,7 +11,7 @@ feature "単語登録" do
   end
 
   context "正しい値が入力された場合" do
-    given(:content) { "valid" }
+    given(:content) { Faker::Lorem.word }
     scenario "登録できる" do
       expect(page).to have_content I18n.t("flash.registration_success")
       expect(page).to have_content content

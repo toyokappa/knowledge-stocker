@@ -35,7 +35,7 @@ feature "認証" do
     context "登録済みユーザーのEmailと不正なパスワードを入力した場合" do
       given(:user) { create :user }
       given(:email) { user.email }
-      given(:password) { "invalid" }
+      given(:password) { "foobar" }
 
       scenario "ログインできない" do
         expect(page).to have_content I18n.t("flash.authentication_failed")
@@ -43,8 +43,8 @@ feature "認証" do
     end
 
     context "未登録ユーザーのEmailとパスワードを入力した場合" do
-      given(:email) { "invalid@email.com" }
-      given(:password) { "invalid" }
+      given(:email) { "foo@bar.com" }
+      given(:password) { "foobar" }
 
       scenario "ログインできない" do
         expect(page).to have_content I18n.t("flash.authentication_failed")
