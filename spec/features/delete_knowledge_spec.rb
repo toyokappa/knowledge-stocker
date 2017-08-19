@@ -5,7 +5,7 @@ feature "URLの削除" do
   given(:word) { create :word, user: user }
   given!(:knowledge) { create :knowledge, word: word }
 
-  scenario "URLの削除に成功する" do
+  scenario "削除できる" do
     login_as user
     visit edit_word_path(word)
     check "word_knowledges_attributes_0__destroy"

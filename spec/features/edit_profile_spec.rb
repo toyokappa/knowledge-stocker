@@ -19,7 +19,7 @@ feature "プロフィール編集" do
     given(:password) { "valid password" }
     given(:password_confirmation) { "valid password" }
 
-    scenario "プロフィール編集に成功する" do
+    scenario "更新できる" do
       expect(page).to have_content I18n.t("flash.update_success")
     end
   end
@@ -30,7 +30,7 @@ feature "プロフィール編集" do
     given(:password) { "valid password" }
     given(:password_confirmation) { "valid password" }
 
-    scenario "プロフィール編集に失敗する" do
+    scenario "更新できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
   end
@@ -41,7 +41,7 @@ feature "プロフィール編集" do
     given(:password) { "valid password" }
     given(:password_confirmation) { "valid password" }
 
-    scenario "プロフィール編集に失敗する" do
+    scenario "更新できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
   end
@@ -52,7 +52,7 @@ feature "プロフィール編集" do
     given(:password) { "foo" }
     given(:password_confirmation) { "foo" }
 
-    scenario "プロフィール編集に失敗する" do
+    scenario "更新できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
   end
@@ -63,7 +63,7 @@ feature "プロフィール編集" do
     given(:password) { "foobar" }
     given(:password_confirmation) { "foobaz" }
 
-    scenario "プロフィール編集に失敗する" do
+    scenario "更新できない" do
       expect(page).to have_content I18n.t("flash.errors_count", count: 1)
     end
   end

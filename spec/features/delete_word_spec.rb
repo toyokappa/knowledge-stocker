@@ -3,7 +3,7 @@ require "rails_helper"
 feature "単語の削除" do
   given(:user) { create :user }
   given(:word) { create :word, user: user }
-  scenario "単語の削除に成功する" do
+  scenario "削除できる" do
     login_as user
     visit word_path(word)
     click_link I18n.t("link.delete")
