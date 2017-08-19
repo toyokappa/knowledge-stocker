@@ -1,0 +1,6 @@
+- if resources.errors.any?
+  .error_explanation
+    .alert.alert-danger=t "flash.errors_count", count: resources.errors.count
+    %ul
+      - resources.errors.full_messages.each do |msg|
+        %li= msg
