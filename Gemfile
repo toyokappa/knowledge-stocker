@@ -7,6 +7,7 @@ end
 
 
 gem 'rails', '~> 5.1.2'
+gem 'hamlit-rails'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'rails-i18n'
