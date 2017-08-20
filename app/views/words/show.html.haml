@@ -1,0 +1,16 @@
+%h1= t("title.word_details")
+%h2= @word.content
+%ol.word-show
+  - @knowledges.each do |knowledge|
+    %li
+      = t("view.understood_site")
+      \：
+      = link_to knowledge.url, knowledge.url, target: "_blank"
+      %div
+        = Knowledge.human_attribute_name :understanding
+        \：
+        = "★" * knowledge.understanding
+%p
+  = link_to t("link.edit"), edit_word_path(@word)
+  \|
+  = render "shared/delete_link", resources: @word

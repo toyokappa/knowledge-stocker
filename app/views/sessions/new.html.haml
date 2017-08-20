@@ -1,0 +1,12 @@
+%h1.center= t("title.login")
+
+.row
+  .col-sm-6.col-sm-offset-3
+    = form_with model: User.new, url: login_path, scope: :session, local: true do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: "form-control"
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: "form-control"
+      = f.submit t("link.login"), class: "btn btn-primary"

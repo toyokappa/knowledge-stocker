@@ -8,7 +8,7 @@ feature "URLの削除" do
   scenario "削除できる" do
     login_as user
     visit edit_word_path(word)
-    check "word_knowledges_attributes_0__destroy"
+    check "word[knowledges_attributes][0][_destroy]"
     click_button I18n.t("helpers.submit.update")
     expect(page).not_to have_content @knowledge.url
     click_link I18n.t("title.word_index")

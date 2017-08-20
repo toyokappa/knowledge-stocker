@@ -1,0 +1,28 @@
+!!! 5
+%html
+  %head
+    %title= t("app.title")
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %header.navbar.navbar-static-top.navbar-inverse
+      %nav.container
+        .navbar-header
+          = link_to t("app.title"), root_path, class: "navbar-brand"
+        - if logged_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to t("title.profile"), user_path
+            %li= link_to t("title.word_index"), words_path
+            %li= link_to t("title.word_registration"), new_word_path
+            %li= link_to t("link.logout"), logout_path, method: :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to t("title.user_registration"), signup_path
+            %li= link_to t("link.login"), login_path
+
+    .container#wrapper
+      - flash.each do |msg_type, msg|
+        = content_tag :div, msg, class: "alert alert-#{msg_type}"
+      = yield
