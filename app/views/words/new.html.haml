@@ -1,7 +1,7 @@
 %h1.center= t("title.word_registration")
 .row
   .col-sm-6.col-sm-offset-3
-    = form_for @word do |f|
+    = form_with model: @word do |f|
       = render "shared/error_messages", resources: @word
       .form-group
         = f.label :content
