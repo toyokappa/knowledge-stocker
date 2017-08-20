@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.4.1
+cache: bundler
+bundler_args: --without production --deployment
+script:
+  - bundle exec rails db:setup
+  - bundle exec rspec
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
