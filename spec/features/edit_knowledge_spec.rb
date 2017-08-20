@@ -8,8 +8,8 @@ feature "URLの編集" do
 
     login_as user
     visit edit_word_path(word)
-    fill_in "word_knowledges_attributes_0_url", with: url
-    fill_in "word_knowledges_attributes_0_understanding", with: understanding
+    fill_in "word[knowledges_attributes][0][url]", with: url
+    fill_in "word[knowledges_attributes][0][understanding]", with: understanding
     click_button I18n.t("helpers.submit.update")
   end
 

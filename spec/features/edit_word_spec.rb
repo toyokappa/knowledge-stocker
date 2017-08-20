@@ -7,7 +7,7 @@ feature "単語の編集" do
 
     login_as user
     visit edit_word_path(word)
-    fill_in "word_content", with: content
+    fill_in "word[content]", with: content
     click_button I18n.t("helpers.submit.update")
   end
 
