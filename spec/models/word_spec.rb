@@ -17,7 +17,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Word, type: :model do
   it "has a valid factory" do
