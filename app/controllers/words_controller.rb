@@ -37,19 +37,19 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    @word.destroy
+    @word.destroy!
     flash[:success] = t(:delete_success, scope: :flash)
     redirect_to words_url
   end
 
   private
 
-  def word_params
-    params.require(:word).permit(:content,
-    knowledges_attributes: [:id, :url, :understanding, :_destroy])
-  end
+    def word_params
+      params.require(:word).permit(:content,
+                                   knowledges_attributes: [:id, :url, :understanding, :_destroy])
+    end
 
-  def set_word
-    @word = current_user.words.find(params[:id])
-  end
+    def set_word
+      @word = current_user.words.find(params[:id])
+    end
 end
