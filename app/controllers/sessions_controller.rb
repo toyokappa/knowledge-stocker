@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def destroy_session
-    session.delete(:user_id)
-  end
+    def destroy_session
+      session.delete(:user_id)
+    end
 end

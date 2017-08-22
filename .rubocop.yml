@@ -1,8 +1,12 @@
-Rails:
-  Enabled: true
+inherit_gem:
+  onkcop:
+    - "config/rubocop.yml"
+    # uncomment if use rails cops
+    - "config/rails.yml"
+    # uncomment if use rspec cops
+    # - "config/rspec.yml"
 
-StringLiterals:
-  EnforcedStyle: double_quotes
-
-Style/Documentation:
-  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.4
+  # uncomment if use rails cops
+  TargetRailsVersion: 5.1
