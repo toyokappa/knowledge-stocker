@@ -1,9 +1,0 @@
-%h1.center= t("title.word_registration")
-.row
-  .col-sm-6.col-sm-offset-3
-    = form_with model: @word, local: true do |f|
-      = render "shared/error_messages", resources: @word
-      .form-group
-        = f.label :content
-        = f.text_field :content, class: "form-control"
-      = f.submit class: "btn btn-primary"

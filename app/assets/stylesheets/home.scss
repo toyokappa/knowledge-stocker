@@ -1,3 +1,35 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*    Word index    */
+
+.word_index {
+  ul {
+    font-size: 20px;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    &:last-child {
+      border: none;
+    }
+  }
+  .menus {
+    float: right;
+    a {
+      margin-left: 10px;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .more_words {
+    display: block;
+    text-align: right;
+    margin-top: 20px;
+  }
+}
