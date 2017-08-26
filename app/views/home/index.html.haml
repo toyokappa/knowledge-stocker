@@ -17,4 +17,5 @@
             = link_to image_tag("add_knowledge.svg", alt: "知識を登録", title: "知識を登録"), edit_word_path(word)
             = link_to image_tag("delete_word.svg", alt: "単語を削除", title: "単語を削除"),
                       word, method: :delete, data: { confirm: t("view.delete_confirmation") }
-    = link_to "もっと単語を表示", words_path, class: "more_words" if current_user.words.size > 10
+    = link_to "もっと単語を表示", words_path, class: "more_words" if current_user.words.size - 1 > 10
+    / 原因は不明だがcurrent_user.words.sizeがn+1になってしまっている為、-1で相殺
