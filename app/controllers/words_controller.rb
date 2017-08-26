@@ -5,17 +5,14 @@ class WordsController < ApplicationController
     @words = current_user.words.page(params[:page])
   end
 
-  def new
-    @word = current_user.words.build
-  end
-
   def create
     @word = current_user.words.build(word_params)
     if @word.save
       flash[:success] = t(:registration_success, scope: :flash)
-      redirect_to @word
+      redirect_to root_url
     else
-      render "new"
+      @words = current_user.words.page.limit(10)
+      render "home/index"
     end
   end
 
@@ -39,7 +36,7 @@ class WordsController < ApplicationController
   def destroy
     @word.destroy!
     flash[:success] = t(:delete_success, scope: :flash)
-    redirect_to words_url
+    redirect_to root_url
   end
 
   private
