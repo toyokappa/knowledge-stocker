@@ -1,21 +1,21 @@
 .row
   .col-sm-5
     .center
-      %h1 単語を登録する
+      %h1= t("title.word_registration")
     = form_with model: @word, local: true do |f|
       = render "shared/error_messages", resources: @word
       .form-group
         = f.text_field :content, class: "form-control"
       = f.submit class: "btn btn-primary"
   .col-sm-6.col-sm-offset-1.word_index
-    %h2 単語一覧
+    %h2= t("title.word_index")
     %ul
       - @words.each do |word|
         %li
           = link_to word.content, word, class: "word_content"
           .menus
-            = link_to image_tag("add_knowledge.svg", alt: "知識を登録", title: "知識を登録"), edit_word_path(word)
-            = link_to image_tag("delete_word.svg", alt: "単語を削除", title: "単語を削除"),
+            = link_to image_tag("add_knowledge.svg", alt: t("view.add_knowledge"), title: t("view.add_knowledge")), edit_word_path(word)
+            = link_to image_tag("delete_word.svg", alt: t("view.delete_word"), title: t("view.delete_word")),
                       word, method: :delete, data: { confirm: t("view.delete_confirmation") }
-    = link_to "もっと単語を表示", words_path, class: "more_words" if current_user.words.size - 1 > 10
+    = link_to t("link.more_words"), words_path, class: "more_words" if current_user.words.size - 1 > 10
     / 原因は不明だがcurrent_user.words.sizeがn+1になってしまっている為、-1で相殺

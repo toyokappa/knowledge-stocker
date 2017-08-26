@@ -9,7 +9,7 @@ feature "単語一覧" do
         login_as user
         visit root_path
         @words.each { |word| expect(page).to have_content word.content }
-        expect(page).not_to have_content "もっと単語を表示"
+        expect(page).not_to have_content I18n.t("link.more_words")
       end
     end
     context "登録済みの単語が10個より多い場合" do
@@ -17,7 +17,7 @@ feature "単語一覧" do
       scenario "単語一覧ページへのリンクを表示する" do
         login_as user
         visit root_path
-        expect(page).to have_content "もっと単語を表示"
+        expect(page).to have_content I18n.t("link.more_words")
       end
     end
   end
