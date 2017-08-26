@@ -20,6 +20,7 @@
 class Word < ApplicationRecord
   belongs_to :user
   has_many :knowledges, dependent: :destroy
+  scope :id_order, -> { order(id: :desc) }
   accepts_nested_attributes_for :knowledges, allow_destroy: true,
                                              reject_if: ->(attributes) { attributes["url"].blank? }
 

@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   before_action :set_word, only: [:show, :edit, :update, :destroy]
 
   def index
-    @words = current_user.words.page(params[:page])
+    @words = current_user.words.id_order.page(params[:page])
   end
 
   def create
@@ -11,7 +11,7 @@ class WordsController < ApplicationController
       flash[:success] = t(:registration_success, scope: :flash)
       redirect_to root_url
     else
-      @words = current_user.words.page.limit(10)
+      @words = current_user.words.page.id_order.limit(10)
       render "home/index"
     end
   end
