@@ -11,7 +11,7 @@ feature "URLの削除" do
     check "word[knowledges_attributes][0][_destroy]"
     click_button I18n.t("helpers.submit.update")
     expect(page).not_to have_content @knowledge.url
-    click_link I18n.t("title.word_index")
+    visit words_path
     expect(page).not_to have_content I18n.t("view.understood_site")
   end
 end

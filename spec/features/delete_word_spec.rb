@@ -8,7 +8,7 @@ feature "単語の削除" do
     visit word_path(word)
     click_link I18n.t("link.delete")
     expect(page).to have_content I18n.t("flash.delete_success")
-    expect(current_path).to eq words_path
+    expect(current_path).to eq root_path
     expect(page).not_to have_content word.content
   end
 end
