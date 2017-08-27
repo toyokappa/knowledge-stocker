@@ -43,10 +43,26 @@ RSpec.describe Word, type: :model do
         expect(relation.ids).to eq @word_order.map(&:id)
       end
     end
+
+    describe ".knowledge_list" do
+      before do
+        words = create_list(:word, 5)
+        create(:knowledge, word: words.first)
+        create(:knowledge, word: words.second)
+        create(:knowledge, word: words.last)
+        @word_list = [words.first, words.second, words.last]
+      end
+      subject(:knowledges) { described_class.has_knowledges }
+
+      it "returns words having knowledges" do
+        expect(knowledges.ids).to match_array @word_list.map(&:id)
+      end
+    end
   end
 
   describe "validation" do
     it { is_expected.to validate_presence_of(:content) }
     it { is_expected.to validate_length_of(:content).is_at_most(50) }
   end
+
 end
