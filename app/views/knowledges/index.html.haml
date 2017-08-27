@@ -1,14 +1,14 @@
 .row
   .col-sm-8.col-sm-offset-2.knowledge_index
-    %h1 知識一覧
+    %h1= t("title.knowledge_index")
     %ul
       - @words.each do |word|
         %li.row
           .col-sm-4= link_to word.content, word
-          .col-sm-4.understanding= " ★ " * word.knowledges.understanding_order.first.understanding
+          .col-sm-4.understanding= t("view.star") * word.knowledges.understanding_order.first.understanding
           .col-sm-4.menus
-            = link_to image_tag("link_icon.svg", alt: "理解したサイト", title: "理解したサイト"),
+            = link_to image_tag("link_icon.svg", alt: t("view.understood_site"), title: t("view.understood_site")),
                       word.knowledges.understanding_order.first.url, target: "_blank"
-            = link_to image_tag("edit_icon.svg", alt: "知識を編集", titile: "知識を編集"), edit_word_path(word)
-            = link_to image_tag("delete_word.svg", alt: "知識を削除", title: "知識を削除"),
+            = link_to image_tag("edit_icon.svg", alt: t("link.edit"), title: t("link.edit")), edit_word_path(word)
+            = link_to image_tag("delete_word.svg", alt: t("link.delete"), title: t("link.delete")),
                       word, method: :delete, data: { confirm: t("view.delete_confirmation") }
