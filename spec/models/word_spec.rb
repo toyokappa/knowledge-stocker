@@ -32,10 +32,10 @@ RSpec.describe Word, type: :model do
   describe "scope" do
     describe ".id_order" do
       before do
-        id_1 = create(:word, id: 1)
-        id_2 = create(:word, id: 2)
-        id_3 = create(:word, id: 3)
-        @word_order = [id_3, id_2, id_1]
+        id1 = create(:word, id: 1)
+        id2 = create(:word, id: 2)
+        id3 = create(:word, id: 3)
+        @word_order = [id3, id2, id1]
       end
       subject(:relation) { described_class.id_order }
 
