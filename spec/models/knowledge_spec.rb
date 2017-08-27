@@ -32,15 +32,16 @@ RSpec.describe Knowledge, type: :model do
 
   describe "scope" do
     describe ".understanding_order" do
-      let!(:understanding_1) { create(:knowledge, understanding: 1) }
-      let!(:understanding_2) { create(:knowledge, understanding: 2) }
-      let!(:understanding_3) { create(:knowledge, understanding: 3) }
-      let!(:knowledge_order) { [understanding_3, understanding_2, understanding_1] }
-
+      before do
+        understanding_1 = create(:knowledge, understanding: 1)
+        understanding_2 = create(:knowledge, understanding: 2)
+        understanding_3 = create(:knowledge, understanding: 3)
+        @knowledge_order = [understanding_3, understanding_2, understanding_1]
+      end
       subject(:relation) { described_class.understanding_order }
 
       it "returns sort order by understanding desc" do
-        expect(relation.ids).to eq knowledge_order.map(&:id)
+        expect(relation.ids).to eq @knowledge_order.map(&:id)
       end
     end
   end

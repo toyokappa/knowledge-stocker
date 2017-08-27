@@ -31,15 +31,16 @@ RSpec.describe Word, type: :model do
 
   describe "scope" do
     describe ".id_order" do
-      let!(:id_1) { create(:word, id: 1) }
-      let!(:id_2) { create(:word, id: 2) }
-      let!(:id_3) { create(:word, id: 3) }
-      let!(:word_order) { [id_3, id_2, id_1] }
-
+      before do
+        id_1 = create(:word, id: 1)
+        id_2 = create(:word, id: 2)
+        id_3 = create(:word, id: 3)
+        @word_order = [id_3, id_2, id_1]
+      end
       subject(:relation) { described_class.id_order }
 
       it "returns sort order by understanding desc" do
-        expect(relation.ids).to eq word_order.map(&:id)
+        expect(relation.ids).to eq @word_order.map(&:id)
       end
     end
   end
