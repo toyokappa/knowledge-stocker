@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  root "home#index"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new"
@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resource :user, only: [:show, :edit, :update]
-  resources :words
+  resources :words, only: [:index, :create, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

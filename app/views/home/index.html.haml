@@ -1,0 +1,20 @@
+.row
+  .col-sm-5
+    .center
+      %h1= t("title.word_registration")
+    = form_with model: @word, local: true do |f|
+      = render "shared/error_messages", resources: @word
+      .form-group
+        = f.text_field :content, class: "form-control"
+      = f.submit class: "btn btn-primary"
+  .col-sm-6.col-sm-offset-1.word_index
+    %h2= t("title.word_index")
+    %ul
+      - @words.each do |word|
+        %li
+          = link_to word.content, word, class: "word_content"
+          .menus
+            = link_to image_tag("add_knowledge.svg", alt: t("view.add_knowledge"), title: t("view.add_knowledge")), edit_word_path(word)
+            = link_to image_tag("delete_word.svg", alt: t("view.delete_word"), title: t("view.delete_word")),
+                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }
+    = link_to t("link.more_words"), words_path, class: "more_words" if current_user.words.count > 10

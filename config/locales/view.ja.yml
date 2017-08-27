@@ -6,8 +6,8 @@ ja:
     user_registration: ユーザー登録
     profile: プロフィール
     user_edit: プロフィール編集
-    word_index: 単語一覧
-    word_registration: 単語登録
+    word_index: 単語リスト
+    word_registration: 単語を登録する
     word_details: 単語詳細
     word_edit: 単語編集
     login: ログイン
@@ -23,7 +23,9 @@ ja:
     logout: ログアウト
     edit: 編集
     delete: 削除
-    register_word: 単語を登録する
+    more_words: もっと単語を表示
   view:
     understood_site: 理解したサイト
     delete_confirmation: 本当に削除しますか？
+    add_knowledge: 知識を登録
+    delete_word: 単語を削除

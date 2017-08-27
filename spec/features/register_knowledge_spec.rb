@@ -17,7 +17,7 @@ feature "URLの登録" do
     given(:understanding) { 5 }
     scenario "登録できる" do
       expect(page).to have_content url
-      click_link I18n.t("title.word_index")
+      visit words_path
       expect(page).to have_content I18n.t("view.understood_site")
     end
   end

@@ -29,6 +29,22 @@ RSpec.describe Word, type: :model do
     it { is_expected.to have_many(:knowledges).dependent(:destroy) }
   end
 
+  describe "scope" do
+    describe ".id_order" do
+      before do
+        id1 = create(:word, id: 1)
+        id2 = create(:word, id: 2)
+        id3 = create(:word, id: 3)
+        @word_order = [id3, id2, id1]
+      end
+      subject(:relation) { described_class.id_order }
+
+      it "returns sort order by understanding desc" do
+        expect(relation.ids).to eq @word_order.map(&:id)
+      end
+    end
+  end
+
   describe "validation" do
     it { is_expected.to validate_presence_of(:content) }
     it { is_expected.to validate_length_of(:content).is_at_most(50) }
