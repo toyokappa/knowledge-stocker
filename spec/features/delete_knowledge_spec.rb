@@ -10,8 +10,9 @@ feature "URLの削除" do
     visit edit_word_path(word)
     check "word[knowledges_attributes][0][_destroy]"
     click_button I18n.t("helpers.submit.update")
-    expect(page).not_to have_content @knowledge.url
+    visit knowledges_path
+    expect(page).not_to have_content word.content
     visit words_path
-    expect(page).not_to have_content I18n.t("view.understood_site")
+    expect(page).to have_content word.content
   end
 end
