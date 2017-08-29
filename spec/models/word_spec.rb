@@ -54,8 +54,21 @@ RSpec.describe Word, type: :model do
       end
       subject(:knowledges) { described_class.with_knowledges }
 
-      it "returns words having knowledges" do
+      it "returns words with knowledges" do
         expect(knowledges.ids).to match_array @word_list.map(&:id)
+      end
+    end
+
+    describe ".without_knowledges" do
+      before do
+        @words = create_list(:word, 3)
+        words_with_knowledge = create_list(:word, 2)
+        words_with_knowledge.each { |word| create(:knowledge, word: word) }
+      end
+      subject(:words_without_knowledges) { described_class.without_knowledges }
+
+      it "returns words without knowledges" do
+        expect(words_without_knowledges.ids).to match_array @words.map(&:id)
       end
     end
   end
