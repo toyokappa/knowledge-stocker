@@ -7,8 +7,8 @@
           .col-sm-4= link_to word.content, word
           .col-sm-4.understanding= t("view.star") * word.knowledges.understanding_order.first.understanding
           .col-sm-4.menus
-            = link_to image_tag("link_icon.svg", alt: t("view.understood_site"), title: t("view.understood_site")),
+            = link_to image_tag("link_button.svg", alt: t("view.understood_site"), title: t("view.understood_site")),
                       word.knowledges.understanding_order.first.url, target: "_blank"
-            = link_to image_tag("edit_icon.svg", alt: t("link.edit"), title: t("link.edit")), edit_word_path(word)
-            = link_to image_tag("delete_word.svg", alt: t("link.delete"), title: t("link.delete")),
+            = link_to image_tag("edit_button.svg", alt: t("link.edit"), title: t("link.edit")), edit_word_path(word)
+            = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
                       word, method: :delete, data: { confirm: t("view.delete_confirmation") }
