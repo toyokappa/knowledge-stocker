@@ -1,13 +1,12 @@
-%h1= t("title.word_index")
-%ul.word-index
-  - @words.each do |word|
-    %li
-      %h2= link_to word.content, word
-      %div
-        - if word.knowledges.any?
-          = link_to t("view.understood_site"), word.knowledges.first.url, target: "_blank"
-          \|
-        = link_to t("link.edit"), edit_word_path(word)
-        \|
-        = render "shared/delete_link", resources: word
-  = paginate @words
+.row
+  .col-sm-8.col-sm-offset-2.index
+    %h1= t("title.word_index")
+    %ul
+      - @words.each do |word|
+        %li.row
+          .col-sm-8= link_to word.content, word
+          .col-sm-4.menus
+            = link_to image_tag("knowledge_button.svg", alt: t("view.add_knowledge"), title: t("view.add_knowledge")), edit_word_path(word)
+            = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
+                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }
+      = paginate @words
