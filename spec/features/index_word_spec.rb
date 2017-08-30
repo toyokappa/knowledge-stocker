@@ -12,6 +12,7 @@ feature "単語一覧" do
         expect(page).not_to have_content I18n.t("link.more_words")
       end
     end
+
     context "登録済みの単語が10個より多い場合" do
       before { @words = create_list(:word, 11, user: user) }
       scenario "単語一覧ページへのリンクを表示する" do
@@ -33,6 +34,7 @@ feature "単語一覧" do
         expect(page).not_to have_link(2, href: "/words?page=2")
       end
     end
+
     context "登録済みの単語が10個より多い場合" do
       before { @words = create_list(:word, 11, user: user) }
       scenario "ページネーションで2ページに分割する" do
