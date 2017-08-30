@@ -10,6 +10,7 @@ ja:
     word_registration: 単語を登録する
     word_details: 単語詳細
     word_edit: 単語編集
+    knowledge_index: 知識リスト
     login: ログイン
   flash:
     authentication_alert: ログインしてください
@@ -29,3 +30,4 @@ ja:
     delete_confirmation: 本当に削除しますか？
     add_knowledge: 知識を登録
     delete_word: 単語を削除
+    star: " ★ "

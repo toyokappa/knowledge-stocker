@@ -14,6 +14,7 @@
         - if logged_in?
           %ul.nav.navbar-nav.navbar-right
             %li= link_to t("title.profile"), user_path
+            %li= link_to t("title.knowledge_index"), knowledges_path
             %li= link_to t("link.logout"), logout_path, method: :delete
         - else
           %ul.nav.navbar-nav.navbar-right

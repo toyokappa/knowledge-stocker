@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "/knowledges", to: "knowledges#index"
 
   resource :user, only: [:show, :edit, :update]
   resources :words, only: [:index, :create, :show, :edit, :update, :destroy]

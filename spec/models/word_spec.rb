@@ -43,6 +43,34 @@ RSpec.describe Word, type: :model do
         expect(relation.ids).to eq @word_order.map(&:id)
       end
     end
+
+    describe ".with_knowledges" do
+      before do
+        words = create_list(:word, 5)
+        create(:knowledge, word: words.first)
+        create(:knowledge, word: words.second)
+        create(:knowledge, word: words.last)
+        @word_list = [words.first, words.second, words.last]
+      end
+      subject(:knowledges) { described_class.with_knowledges }
+
+      it "returns words with knowledges" do
+        expect(knowledges.ids).to match_array @word_list.map(&:id)
+      end
+    end
+
+    describe ".without_knowledges" do
+      before do
+        @words = create_list(:word, 3)
+        words_with_knowledge = create_list(:word, 2)
+        words_with_knowledge.each { |word| create(:knowledge, word: word) }
+      end
+      subject(:words_without_knowledges) { described_class.without_knowledges }
+
+      it "returns words without knowledges" do
+        expect(words_without_knowledges.ids).to match_array @words.map(&:id)
+      end
+    end
   end
 
   describe "validation" do
