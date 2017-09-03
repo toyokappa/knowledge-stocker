@@ -14,6 +14,7 @@ module UsersHelper
   def average_understanding
     knowledges = current_user.words.select("words.id, knowledges.understanding").joins(:knowledges).order("knowledges.understanding DESC").uniq
     understandings = knowledges.map(&:understanding)
-    (understandings.sum.to_f / understandings.size).round(1)
+    average = (understandings.sum.to_f / understandings.size).round(1)
+    average.nan? ? 0 : average
   end
 end
