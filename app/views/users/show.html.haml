@@ -7,12 +7,15 @@
     .bio
       .item= current_user.name
       .item= current_user.email
-    = link_to "編集", edit_user_path
+    = link_to t("link.edit"), edit_user_path
   .col-sm-3.col-sm-offset-1
-    %h2 学習進捗
-    %h3 知識 / 単語
+    %h2= t("view.learning_progress")
+    %h3
+      = t("view.knowledge")
+      \/
+      = t("view.word")
     .knowledges_par_words
       = knowledges_par_words
-    %h3 平均の理解度
+    %h3= t("view.average_understanding")
     .average_understanding
       = average_understanding
