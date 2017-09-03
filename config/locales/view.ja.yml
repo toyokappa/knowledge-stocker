@@ -30,3 +30,7 @@ ja:
     delete_confirmation: 本当に削除しますか？
     add_knowledge: 知識を登録
     star: " ★ "
+    learning_progress: 学習進捗
+    knowledge: 知識
+    word: 単語
+    average_understanding: 平均の理解度
