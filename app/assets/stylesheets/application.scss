@@ -48,8 +48,11 @@ ul.form-group {
     margin-bottom: 15px;
     input {
       margin-right: 10px;
-      &[type="checkbox"] {
-        margin-right: 0;
+      &[type="url"] {
+        width: 100%;
+      }
+      &[type="number"] {
+        width: 100%;
       }
     }
   }
