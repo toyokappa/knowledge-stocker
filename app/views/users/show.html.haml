@@ -3,7 +3,7 @@
     %h1= t("title.profile")
 .row.profile
   .col-sm-3.col-sm-offset-2
-    = get_gravatar_of(current_user, size: 200)
+    = get_gravatar_of(current_user)
     .bio
       .item= current_user.name
       .item= current_user.email
