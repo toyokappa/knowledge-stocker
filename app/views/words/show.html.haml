@@ -10,6 +10,7 @@
         = Knowledge.human_attribute_name :understanding
         \：
         = "★" * knowledge.understanding
+      = link_to "URLを削除", knowledge, method: :delete, data: { confirm: t("view.delete_confirmation") }
 %p
   = link_to t("link.edit"), edit_word_path(@word)
   \|
