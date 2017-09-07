@@ -23,7 +23,7 @@ class Word < ApplicationRecord
   scope :id_order, -> { order(id: :desc) }
   scope :with_knowledges, -> { joins(:knowledges).group(:id) }
   scope :without_knowledges, -> {
-    select("words.*, knowledges.url").left_outer_joins(:knowledges).where("knowledges.id IS NULL")
+    select("words.*, knowledges.url").left_outer_joins(:knowledges).where("knowledges.url IS NULL")
   }
   accepts_nested_attributes_for :knowledges, allow_destroy: true,
                                              reject_if: ->(attributes) { attributes["url"].blank? }
