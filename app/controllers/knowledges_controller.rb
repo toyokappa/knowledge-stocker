@@ -6,7 +6,6 @@ class KnowledgesController < ApplicationController
   def destroy
     knowledge = Knowledge.find(params[:id])
     knowledge.destroy!
-    flash[:success] = t(:delete_success, scope: :flash)
-    redirect_to word_path(knowledge.word.id)
+    redirect_to word_path(knowledge.word.id), success: t(:delete_success, scope: :flash)
   end
 end

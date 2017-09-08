@@ -8,9 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = t(:registration_success, scope: :flash)
       create_session(@user)
-      redirect_to user_path
+      redirect_to user_path, success: t(:registration_success, scope: :flash)
     else
       render "new"
     end
@@ -24,8 +23,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      flash[:success] = t(:update_success, scope: :flash)
-      redirect_to user_path
+      redirect_to user_path, success: t(:update_success, scope: :flash)
     else
       render "edit"
     end

@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user
   helper_method :current_user, :logged_in?
+  add_flash_types :success, :danger
 
   private
 
     def authenticate_user
       unless logged_in?
-        flash[:danger] = t(:authentication_alert, scope: :flash)
-        redirect_to login_url
+        redirect_to login_url, danger: t(:authentication_alert, scope: :flash)
       end
     end
 
