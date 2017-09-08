@@ -8,8 +8,7 @@ class WordsController < ApplicationController
   def create
     @word = current_user.words.build(word_params)
     if @word.save
-      flash[:success] = t(:registration_success, scope: :flash)
-      redirect_to root_url
+      redirect_to root_url, success: t(:registration_success, scope: :flash)
     else
       @words = current_user.words.without_knowledges.id_order.limit(10)
       render "home/index"
@@ -26,8 +25,7 @@ class WordsController < ApplicationController
 
   def update
     if @word.update(word_params)
-      flash[:success] = t(:update_success, scope: :flash)
-      redirect_to @word
+      redirect_to @word, success: t(:update_success, scope: :flash)
     else
       render "edit"
     end
@@ -35,8 +33,7 @@ class WordsController < ApplicationController
 
   def destroy
     @word.destroy!
-    flash[:success] = t(:delete_success, scope: :flash)
-    redirect_to root_url
+    redirect_to root_url, success: t(:delete_success, scope: :flash)
   end
 
   private
