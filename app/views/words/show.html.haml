@@ -1,17 +1,21 @@
-%h1= t("title.word_details")
-%h2= @word.content
-%ol.word-show
-  - @knowledges.each do |knowledge|
-    %li
-      = t("view.understood_site")
-      \：
-      = link_to knowledge.url, knowledge.url, target: "_blank"
-      %div
-        = Knowledge.human_attribute_name :understanding
-        \：
-        = "★" * knowledge.understanding
-      = link_to "URLを削除", knowledge, method: :delete, data: { confirm: t("view.delete_confirmation") }
-%p
-  = link_to t("link.edit"), edit_word_path(@word)
-  \|
-  = render "shared/delete_link", resources: @word
+.row
+  .col-sm-10.col-sm-offset-1
+    %h1= t("title.word_details")
+    .row.word_show
+      .col-sm-9
+        %h2= @word.content
+      .col-sm-3.menus
+        = link_to image_tag("edit_button.svg", alt: t("link.edit"), title: t("link.edit")), edit_word_path(@word)
+        = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
+                  @word, method: :delete, data: { confirm: t("view.delete_confirmation") }, id: "word_delete"
+    -if @knowledges.present?
+      .index
+        %h3= t("view.understood_site")
+        %ul
+          - @knowledges.each do |knowledge|
+            %li.row
+              .col-sm-8= link_to knowledge.url, knowledge.url, target: "_blank"
+              .col-sm-3.understanding= t("view.star") * knowledge.understanding
+              .col-sm-1.menus
+                = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
+                          knowledge, method: :delete, data: { confirm: t("view.delete_confirmation") }, id: "knowledge_delete"

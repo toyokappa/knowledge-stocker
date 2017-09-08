@@ -4,9 +4,21 @@
 
 /*    Word show    */
 
-ol.word-show {
-  padding-left: 30px;
-  li{
-    margin-bottom: 15px;
+.word_show {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 60px;
+  h2 {
+    margin: 0;
+    padding: 0 0 20px;
+  }
+  .menus {
+    text-align: right;
+    a {
+      margin-left: 10px;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
 }
