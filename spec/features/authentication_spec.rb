@@ -17,7 +17,7 @@ feature "認証" do
       scenario "ログインできる" do
         expect(current_path).to eq root_path
         expect(page).to have_link I18n.t("link.logout")
-        visit user_path
+        visit user_path(user)
         expect(page).to have_content user.name
         expect(page).to have_content user.email
       end
