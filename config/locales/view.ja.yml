@@ -4,6 +4,7 @@ ja:
     description: わからない単語と分かりやすいサイトを繋ぐするサービスです。
   title:
     user_registration: ユーザー登録
+    user_index: ユーザー一覧
     profile: プロフィール
     user_edit: プロフィール編集
     word_index: 単語リスト

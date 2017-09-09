@@ -1,0 +1,9 @@
+.row
+  .col-sm-8.col-sm-offset-2.user_index
+    %h1= t("title.user_index")
+    %ul
+      - @users.each do |user|
+        %li
+          = get_gravatar_of user, size: 60
+          = link_to user.name, user
+    = paginate @users
