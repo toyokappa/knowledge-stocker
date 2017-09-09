@@ -34,3 +34,22 @@
     font-size: 50px;
   }
 }
+
+.user_index {
+  ul {
+    font-size: 20px;
+    padding: 0;
+    li {
+      list-style: none;
+      padding: 20px 0;
+      border-top: 1px solid lightgray;
+      &:first-child {
+        border: none;
+      }
+      img {
+        border-radius: 100%;
+        margin-right: 15px;
+      }
+    }
+  }
+}
