@@ -3,11 +3,13 @@
     %h1= t("title.profile")
 .row.profile
   .col-sm-3.col-sm-offset-2
-    = get_gravatar_of(current_user)
+    = get_gravatar_of(@user)
     .bio
-      .item= current_user.name
-      .item= current_user.email
-    = link_to t("link.edit"), edit_user_path
+      .item= @user.name
+      - if @user == current_user
+        .item= current_user.email
+    - if @user == current_user
+      = link_to t("link.edit"), edit_user_path
   .col-sm-3.col-sm-offset-1
     %h2= t("view.learning_progress")
     %h3
@@ -15,7 +17,7 @@
       \/
       = t("view.word")
     .knowledges_par_words
-      = knowledges_par_words
+      = knowledges_par_words(@user)
     %h3= t("view.average_understanding")
     .average_understanding
-      = average_understanding
+      = average_understanding(@user)
