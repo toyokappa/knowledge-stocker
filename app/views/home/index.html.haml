@@ -16,5 +16,5 @@
           .menus
             = link_to image_tag("knowledge_button.svg", alt: t("view.add_knowledge"), title: t("view.add_knowledge")), edit_word_path(word)
             = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
-                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }
+                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }, id: "word_delete"
     = link_to t("link.more_words"), words_path, class: "more_words" if current_user.words.without_knowledges.pluck(:id).count > 10

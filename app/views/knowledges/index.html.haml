@@ -11,5 +11,5 @@
                       word.knowledges.understanding_order.first.url, target: "_blank"
             = link_to image_tag("edit_button.svg", alt: t("link.edit"), title: t("link.edit")), edit_word_path(word)
             = link_to image_tag("delete_button.svg", alt: t("link.delete"), title: t("link.delete")),
-                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }
+                      word, method: :delete, data: { confirm: t("view.delete_confirmation") }, id: "word_delete"
       = paginate @words

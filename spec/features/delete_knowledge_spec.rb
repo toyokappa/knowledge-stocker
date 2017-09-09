@@ -8,7 +8,7 @@ feature "URLの削除" do
   scenario "削除できる" do
     login_as user
     visit word_path(word)
-    click_link "URLを削除"
+    click_link "knowledge_delete"
     expect(page).to have_content I18n.t("flash.delete_success")
     expect(current_path).to eq word_path(word)
     visit knowledges_path

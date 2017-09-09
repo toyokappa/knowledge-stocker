@@ -80,6 +80,11 @@ ul.form-group {
 /*    Index    */
 
 .index {
+  h3 {
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+  }
   ul {
     font-size: 20px;
     padding: 0;
@@ -87,6 +92,7 @@ ul.form-group {
       list-style: none;
       padding: 20px 0;
       border-top: 1px solid lightgray;
+      word-break: break-all;
       &:first-child {
         border: none;
       }
