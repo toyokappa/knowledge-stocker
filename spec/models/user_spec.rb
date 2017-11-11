@@ -3,9 +3,9 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  name            :string           not null
-#  email           :string           not null
-#  password_digest :string
+#  name            :string(255)      not null
+#  email           :string(255)      not null
+#  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

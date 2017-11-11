@@ -3,7 +3,7 @@
 # Table name: knowledges
 #
 #  id            :integer          not null, primary key
-#  url           :string           not null
+#  url           :string(255)      not null
 #  word_id       :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
