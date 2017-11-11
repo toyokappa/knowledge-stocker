@@ -12,7 +12,7 @@ gem "hamlit-rails"
 gem "kaminari"
 gem "kaminari-i18n"
 gem "missing_validators"
-gem "pg"
+gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.2"
 gem "rails-i18n"
@@ -42,5 +42,5 @@ end
 group :test do
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
-  gem "shoulda-matchers", github: "thoughtbot/shoulda-matchers", branch: "rails-5"
+  gem "shoulda-matchers"
 end

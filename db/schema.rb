@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170710033954) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "knowledges", force: :cascade do |t|
+  create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "url", null: false
     t.bigint "word_id"
     t.datetime "created_at", null: false
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170710033954) do
     t.index ["word_id"], name: "index_knowledges_on_word_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest"
@@ -34,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170710033954) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "words", force: :cascade do |t|
+  create_table "words", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "content", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
